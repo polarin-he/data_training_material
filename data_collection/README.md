@@ -1,13 +1,16 @@
-[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
+# POLARIN Data Collection Training Material
+## Repository Content
+This folder contains resources and materials focused on best practices for data collection in research and data-driven projects. Topics include proper documentation, standardization of methodologies, and tools for efficient data acquisition.
 
-# POLARIN Data Stewardship Training Material
-Welcome to the **POLARIN Data Stewardship Training Material** repository! This repository contains training resources specifically designed for the **POLARIN** project, a EU-HORIZON2020 project aiming at addressing the scientific challenges of the polar regions by providing integrated, challenge-driven, and combined access to a wide array of complementary and interdisciplinary top level research infrastructures: Arctic and Antarctic research stations, research vessels and icebreakers operating at both poles, observatories, data infrastructures and ice and sediment core repositories.
+### Key Topics
 
-The aim of this repository is to provide data management best practices for all POLARIN researchers, and to ensure the availability of valuable polar data over time in a FAIR manner. The contents of this repository cover various topics, including theory on data collection, curation, provenance, publication and preservation. These resources equip all POLARIN virtual access (VA) users and providers, and other POLARIN stakeholders with essential knowledge and skills to handle polar research data efficiently and responsibly throughout its entire lifecycle. The repository is divided into the following categories: 
+- **Tools and software for efficient virtual data acquisition**
+- **Tools and software for efficiently translating unpublished field observations to FAIR data**
 
-- **Data collection** (systematically gathering data (virtually) for analysis and decision-making)
-- **Data curation** (managing and organizing data to maintain quality and accessibility for future use)
-- **Data lifecycle management** (ensuring long-term open-access accessibility of data to through data centers and repositories, documenting the history of data, adhering to the FAIR data principles)
+### Structure of repository
+- **Learning Modules**:                                             
+- **Case Studies**: 
+- **Additional Resources**: 
 
 ## Intended audience
 This training material is meant for:
@@ -37,7 +40,7 @@ Want to learn more about the POLARIN project? Go to the [project website](https:
 If u want to contribute to the contents of this repository, open an issue here on GitHub, make changes to a new branch and make a pull request, or send an email to the content curator Daan Kivits: daan.kivits@sios-svalbard.org.
 
 ## License
-This work, and everything included in this repository is licensed under a [GNU Affero General Public License 3.0 license][AGPL].
+This work is licensed under a [GNU Affero General Public License 3.0 license][AGPL].
 
 [![AGPL-3.0][AGPL-image]][AGPL]
 
