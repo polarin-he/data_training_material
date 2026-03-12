@@ -1,0 +1,25 @@
+# Supportive literature
+*This notebook gives some references to literature that might help in understanding the data concepts introduced in this learning module.*
+
+<center><img src="../../sources/images/FAIRness_figure.png" width="500" height="auto"><center>
+The FAIR guiding principles. Source: Svalbard Integrated Arctic Earth Observing System (SIOS), licensed CC BY 4.0
+
+### FAIR guiding principles
+- A more detailed description of the FAIR principles is given by [Wilkinson et al (2016)](https://doi.org/10.1038/sdata.2016.18).
+- An explainer video has been made by [LukeDataManager](https://www.youtube.com/@LukeDataManager): [How to publish FAIR data (2024)](https://youtu.be/RC14Ty0D4w0?si=l9Ck1w1eaMpUeFtl). The channel also contains other videos on data management and FAIR data.
+- The [GO FAIR Initiative](https://www.go-fair.org/) has created an [archive on Zotero dedicated to resources on the FAIR guiding principles](https://www.zotero.org/groups/2345721/fair_data_resources/).
+- EUDAT has organized a [FAIR Data in Trustworthy Data Repositories Webinar](https://eudat.eu/fair-data-in-trustworthy-data-repositories-webinar), that provides a general understanding of the FAIR principles, the core requirements for trustworthy data repositories, and a possible way to operationalize the FAIR principles.
+- All of the FAIR principles are described in a fun and easily understandable manner with supportive fictuous stories in [A FAIRy tale](http://zenodo.org/records/2248200#.XkVegPZFxaS).
+
+### Examples of services built with the FAIR guiding principles in mind
+- [Destination Earth](https://platform.destine.eu/) is a European initiative that aims to create a digital twin of the Earth.
+- [Ocean Virtual Lab](https://ovl.oceandatalab.com/): a virtual platform to allow oceanographers to discover the existence and then to handle jointly, in a convenient, flexible and intuitive way, the various co-located Earth Observation datasets and related model/in-situ datasets over dedicated regions of interest with a different multifaceted point of view.
+- [GBIF](https://www.gbif.org/): the Global Biodiversity Information Facility, which provides access to biodiversity data.
+
+### FAIR data formats
+- Examples of FAIR data formats are given by [Wilkinson et al (2016)](https://doi.org/10.1038/sdata.2016.18).
+- [LukeDataManager](https://www.youtube.com/@LukeDataManager) has created videos on working with FAIR data formats such as CF-NetCDF in either [Python](https://www.youtube.com/playlist?list=PLpykv05eUR0rAuaLnybkZORnCwyND4CV4) and [R](https://www.youtube.com/playlist?list=PLpykv05eUR0oqBYFNqtiRgJGYR2tpCYtw), and [Darwin Core Archives](https://www.youtube.com/watch?v=1Fuq8VZW_4c&list=PLpykv05eUR0qAHcMt8RgkzIy-64MGk4wE). The channel also contains other videos on data management and FAIR data, and [videos in which the benefits of using FAIR data are demonstrated](https://www.youtube.com/playlist?list=PLpykv05eUR0qyvIj3NGyOJTKAuzWuI5_D).
+
+### Other (more general) data management resources
+- The Svalbard Integrated Arctic Earth Observing System (SIOS) has created a free online [Data management course](https://youtube.com/playlist?list=PLRJ2lYW8dJcVEBEBU0VQJxo4PXctCc7yv&si=BSGMOqRKglcoax2k) that contains helpful advice on data stewardship.
+- The [ENVRI-FAIR project](https://envri.eu/fair/) has created the [ENVRI-Hub Training Gateway](https://envrihub.vm.fedcloud.eu/training) archive dedicated to resources on data stewardship and the FAIR guiding principles.
