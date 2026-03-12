@@ -1,0 +1,3 @@
+./sources/
+*.ipynb
+.ipynb_checkpoints/
