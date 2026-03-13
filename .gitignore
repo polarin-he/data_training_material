@@ -162,3 +162,8 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
+# Unneccessary source files
+/sources/
+
+# Ignore all notebooks, so git hook can automatically create .md files and commit those instead
+*.ipynb
