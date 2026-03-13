@@ -6,6 +6,7 @@ The aim of this repository is to provide data management best practices for all 
 
 The contents of this repository cover various topics, including theory on data collection, curation, provenance, publication and preservation. These resources equip all POLARIN virtual access (VA) users and providers, and other POLARIN stakeholders with essential knowledge and skills to handle polar research data efficiently and responsibly throughout its entire lifecycle. The repository is divided into the following categories: 
 
+- **Data concepts** (understanding key data management terms, such as FAIR and CARE, and which data formats are compatible with those concepts)
 - **Data collection** (systematically gathering data (virtually) for analysis and decision-making)
 - **Data curation** (managing and organizing data to maintain quality and accessibility for future use)
 - **Data lifecycle management** (ensuring long-term open-access accessibility of data to through data centers and repositories, documenting the history of data, adhering to the FAIR data principles)
