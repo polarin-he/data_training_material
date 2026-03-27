@@ -34,6 +34,9 @@ POLARIN has the following six specific objectives, coherent with the work packag
 
 Want to learn more about the POLARIN project? Go to the [project website](https://eu-polarin.eu/).
 
+## The POLARIN Training Resources Database
+The training content described in this repository is mostly created by gathering existing, external training content on data stewardship. We have collected all of these training materials and tagged according to the chapter they are used in. You can find all these existing, external training materials [here](https://docs.google.com/spreadsheets/d/1jOIR7_TRfE7lSWVhZXE4R-0jSLxTL4sT7mWvTqiO3nY/edit?usp=sharing).
+
 ## Contributing to this training material repository
 If u want to contribute to the contents of this repository, open an issue here on GitHub, make changes to a new branch and make a pull request, or send an email to the content curator Daan Kivits: daan.kivits@sios-svalbard.org.
 
