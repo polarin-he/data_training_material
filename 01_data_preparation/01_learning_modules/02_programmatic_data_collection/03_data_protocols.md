@@ -1,5 +1,7 @@
 # Data protocols: A convenient approach to using research data on-the-fly?
 
+>NOTE: _This section is work in progress!_
+
 Because CF-NetCDF files are standardised, it is possible for data centres and data access portals to build ways for the user to download the data directly into CSV or ASCII files. This makes it easier for some people to access the data. Whether this is possible or not depends on the data centre/data access portal and the file. Not all services offer such services. This might be something to consider when deciding where you want to publish your own NetCDF file.
 
 Here are some things to look out for. 
@@ -28,3 +30,5 @@ See this example on the SIOS data access portal:
 ![SIOS data access portal](images/sios_data_access.png)
 
 _Source: [Introduction to CF-NetCDF course by L. Marsden (2022)](https://nordatanet.github.io/Introduction_to_CF-NetCDF/intro.html#how-to-cite-this-course)_
+
+

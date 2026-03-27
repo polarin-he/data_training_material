@@ -1,8 +1,6 @@
 # Making your data FAIR and useful for others
 
-sfsfs
-
----
+>NOTE: _This section is work in progress!_
 
 ## Create a FAIR-compliant datasets from tabular data
 
