@@ -5,7 +5,8 @@ This folder contains resources and materials focused on best practices for data 
 ### Key Topics
 
 - **Virtual data collection: Tools and software for efficient virtual data acquisition**
-- **Fieldwork preparation: Best practises for collection of field observations for efficient translation to FAIR data**
+- - **Project preparation: Tools and software for efficient virtual data acquisition** 
+**Fieldwork preparation: Best practises for collection of field observations for efficient translation to FAIR data**
 
 ### Structure of repository
 1. **Learning Modules**                                          

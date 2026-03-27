@@ -8,7 +8,7 @@ This folder provides an introduction to the data concepts used later in the POLA
     - **Accessible (A)**
     - **Interoperable (I)**
     - **Reusable (R)**
-- **FAIR data standards and formats (including but not limited to)**
+- **FAIR data formats (including but not limited to)**
     - **CF-NetCDF**
     - **Darwin Core Archive**
 

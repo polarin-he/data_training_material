@@ -166,4 +166,5 @@ cython_debug/
 /sources/
 
 # Ignore all notebooks, so git hook can automatically create .md files and commit those instead
-*.ipynb
+# UPDATE 27-03-2026: We want to keep the notebooks in version control, so we can track changes and have a history of the notebooks. We will use a pre-commit hook to automatically convert the notebooks to markdown files and commit those instead. This way, we can keep the notebooks in version control, but we won't have to worry about merge conflicts or large diffs when working with notebooks. This also makes it easier for the audience to access the training content, as Jupyter Notebooks are generally easier to access than Markdown files.
+# *.ipynb
