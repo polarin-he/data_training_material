@@ -4,8 +4,4 @@ authors:
   - family-names: Kivits
     given-names: Daan
 title: "POLARIN data stewardship training material repository"
-version: 1.0.0
-identifiers:
-  - type: doi
-    value: 10.5281/zenodo.1234
-date-released: 2025-05-01
+version: 2.0.0
