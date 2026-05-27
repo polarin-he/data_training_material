@@ -14,13 +14,14 @@ This folder provides a crash course in data stewardship best practices in the EU
     - Emphasize that support is available, and we are here to help. For help, contact polarin@sios-svalbard.org
 
 ### What notebooks should be made as as part of this crash course?
-1. What are the FAIR and CARE principles?
-    - What are the FAIR data principles?
-    - What are the CARE data principles? 
-        - Why is FAIR in itself not enough, and how are the CARE data principles an extension of FAIR, not a replacement?
+1. Introduction to the FAIR and CARE data principles
+_What are the FAIR and CARE data principles, and why should these always be extended with the CARE principles?_
+    - FAIR data principles 
+    - CARE data principles 
     - Links to external training materials on these topics
 
-2. How should you structure your data in POLARIN?
+2. Structuring your (meta)data in POLARIN
+_How should you structure you (meta)data to meet the POLARIN TA and/or VA requirements?_
     - POLARIN requirements
         - Data Management Plan
             - General POLARIN DMP
@@ -29,16 +30,19 @@ This folder provides a crash course in data stewardship best practices in the EU
     - What metadata formats does POLARIN recommend to use?
     - Links to external training materials on these topics
 
-3. How and where to publish your data to integrate it into POLARIN?
+3. Publishing your data in POLARIN
+_How and where to publish your data to integrate it into POLARIN?_
     - Open Science requirements
     - Data licensing
     - Recommendations on which data centers to upload data to
         - Always discuss publication of data with data centers themselves!
     - Links to external training materials on these topics
 
-4. How to use the POLARIN Data Hub? (ETT)
+4. Using the POLARIN Data Hub (ETT)
+_How should you interact with the POLARIN Data Hub to find, access, analyse, and share POLARIN data?_
 
-5. Helpful data tools developed by POLARIN (ETT)
+5. Data tools in POLARIN (ETT)
+_How to use the different tools developed in POLARIN to help you interact with POLARIN data?_
 
 ## Intended audience
 This training material is meant for:
