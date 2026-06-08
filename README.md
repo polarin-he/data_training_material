@@ -21,7 +21,7 @@ _What are the FAIR and CARE data principles, and why should these always be exte
     - Links to external training materials on these topics
 
 2. Structuring your (meta)data in POLARIN
-_How should you structure you (meta)data to meet the POLARIN TA and/or VA requirements?_
+_How should you structure you (meta)data to meet the POLARIN TA requirements?_
     - POLARIN requirements
         - Data Management Plan
             - General POLARIN DMP
@@ -32,8 +32,7 @@ _How should you structure you (meta)data to meet the POLARIN TA and/or VA requir
 
 3. Publishing your data in POLARIN
 _How and where to publish your data to integrate it into POLARIN?_
-    - Open Science requirements
-    - Data licensing
+     - Data licensing / Open Science requirements   
     - Recommendations on which data centers to upload data to
         - Always discuss publication of data with data centers themselves!
     - Links to external training materials on these topics
