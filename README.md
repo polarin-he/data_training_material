@@ -1,47 +1,18 @@
-# POLARIN Data Stewardship crash course
-## Repository Content
-This folder provides a crash course in data stewardship best practices in the EU-HORIZON POLARIN project, but can also be used or applied in contexts outside of POLARIN.
+# POLARIN Data Crash Course
+This repository contains a concise, practical data stewardship crash course you can use immediately. It is provided as Jupyter Notebooks with Markdown/HTML exports and supporting images so you can read, run and adapt the material locally.
 
-### What information should we give about this crash course, in e.g. a README file like this?
-- What to expect from this repository?
-    - Only basic course. For more information, link to external materials in the training resources database
+## What you'll get
+- Interactive lessons in `data_crash_course/` (open in JupyterLab/Notebook)
+- Markdown/HTML lesson exports if you prefer reading without running notebooks
+- A starter `polarin_template.ipynb` you can copy to document and package your dataset
+- Supporting images and diagrams in `sources/images/`
 
-- Definition of roles and responsibilities:
-    - Data user (you)
-    - Data manager (us)
-
-- How to raise issues, contribute to materials, request support
-    - Emphasize that support is available, and we are here to help. For help, contact polarin@sios-svalbard.org
-
-### What notebooks should be made as as part of this crash course?
-1. Introduction to the FAIR and CARE data principles
-_What are the FAIR and CARE data principles, and why should these always be extended with the CARE principles?_
-    - FAIR data principles 
-    - CARE data principles 
-    - Links to external training materials on these topics
-
-2. Structuring your (meta)data in POLARIN
-_How should you structure you (meta)data to meet the POLARIN TA requirements?_
-    - POLARIN requirements
-        - Data Management Plan
-            - General POLARIN DMP
-            - TA project DMP
-    - What data formats does POLARIN recommend to use?
-    - What metadata formats does POLARIN recommend to use?
-    - Links to external training materials on these topics
-
-3. Publishing your data in POLARIN
-_How and where to publish your data to integrate it into POLARIN?_
-     - Data licensing / Open Science requirements   
-    - Recommendations on which data centers to upload data to
-        - Always discuss publication of data with data centers themselves!
-    - Links to external training materials on these topics
-
-4. Using the POLARIN Data Hub (ETT)
-_How should you interact with the POLARIN Data Hub to find, access, analyse, and share POLARIN data?_
-
-5. Data tools in POLARIN (ETT)
-_How to use the different tools developed in POLARIN to help you interact with POLARIN data?_
+## Quick lesson list
+- `01_FAIR.ipynb` — FAIR principles and practical steps for your data
+- `02_CARE.ipynb` — CARE principles and community-focused considerations
+- `04_DataHub.ipynb` — How to find and access POLARIN-hosted data
+- `05_DataHub_UseCases.ipynb`— Practical Data Hub examples
+- `polarin_template.ipynb` — Template for your POLARIN-aligned project
 
 ## Intended audience
 This training material is meant for:
