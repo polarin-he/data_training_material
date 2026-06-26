@@ -8,6 +8,7 @@ This repository contains a concise, practical data stewardship crash course you 
 - `04_Publishing_data.ipynb` —  Guidance on how and where to publish POLARIN data
 - `05_DataHub.ipynb` — Guidance on how to find and access POLARIN-hosted data via the Data Hub
 - `06_DataHub_UseCases.ipynb`— Practical Data Hub usage examples
+- `07_POLARIN_DataStreaming.ipynb` — Interactive tutorial on how to leverage Data Access Protocols (DAPs) to stream POLARIN data
 - `polarin_template.ipynb` — Notebook template for anyone willing to contribute to these data stewardship training materials
 
 ## The POLARIN Training Resources Database
