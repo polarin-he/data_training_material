@@ -1,0 +1,184 @@
+# How to structure your POLARIN TA data?
+<style>
+.info-box {
+    background-color: rgba(128, 128, 128, 0.1);
+    border-left: 4px solid rgba(128, 128, 128, 0.25);
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 0.9em;
+    color: #333;
+}
+</style>
+
+<div class="info-box">
+
+**Audience level: Beginner**
+
+**Estimated reading time: 30 minutes**
+
+**Contributor: Daan Kivits (SIOS-KC)**
+
+**Date created: 19-06-2026**
+
+**Date last modified: 22-06-2026**
+
+**License: [GNU GENERAL PUBLIC LICENSE Version 3 (AGPLv3)](https://www.gnu.org/licenses/gpl-3.0.html)** </div>
+
+Structuring your data and metadata according to **POLARIN requirements** ensures that your datasets are **discoverable, interoperable, and reusable**. This notebook guides you through the essential steps to prepare your data for **Transnational Access (TA)** in POLARIN, focusing on **machine-readable formats**, **metadata standards**, and **best practices** for organizing your datasets.
+
+---
+
+#### Learning Objectives
+By the end of this notebook, you will:
+1. Understand the **POLARIN Data Management Plan (DMP) requirements** for TA projects
+2. Know **what metadata to include** to ensure your TA data is well-documented and discoverable
+3. Identify **recommended (meta)data standards** (e.g., CF-NetCDF, Darwin Core Archive, CF Conventions, ACDD, etc.)
+4. Use tools like the **SIOS Dataset validation form** to create compliant metadata for your datasets
+
+#### Prerequisites
+- Basic familiarity with **research data** (e.g., what datasets look like in your field).
+- (Optional but recommended) Access to a **dataset** you want to structure (optional but helpful for hands-on practice).
+- (Optional but recommended) Completion of **[Notebook 1: Introduction to FAIR Principles](./01_FAIR.ipynb)** and **[Notebook 2: FAIR is not enough: CARE as an extension to FAIR](./02_CARE.ipynb)**.
+
+---
+
+## What is metadata?
+**Metadata** is information that describes data (or: *data about data*), making it easier to find, understand, and reuse. Think of it as a "label" for your dataset that explains what it contains, who created it, and how it can be used. Preferably metadata is included within the dataset itself (e.g., as attributes in a CF-NetCDF file) to ensure that the data is self-describing and cannot be 
+
+In general, the more metadata you provide, the better, as it enhances the findability, accessibility, interoperability, and reusability of your data. However, it is important to prioritize the most critical metadata fields that are required by POLARIN and relevant to your specific dataset and use case. Read more about POLARIN-specific requirement in the [next section](#polarin_requirements). To make metadata useful for both humans and machines, it is important to use standardized metadata schemas and controlled vocabularies whenever possible, as described in more detail in [this section](#standardized_metadata). 
+
+<div style="max-width: 1080px;">
+
+![Data versus metadata. Source: "Data vs Metadata #1" cartoon from Piotr at Dataedo.com, licensed CC-BY 4.0](../sources/images/Data_Metadata.png)
+
+*Data versus metadata. Source: "Data vs Metadata #1" cartoon from Piotr at Dataedo.com, licensed CC-BY 4.0* 
+
+</div>
+
+#### Discovery Metadata
+**Discovery metadata** helps users find your data. It answers the **"who, what, where, and when"** of your dataset. In general, but especially in **POLARIN**, providing *discovery metadata* is critical to ensure datasets are **findable** in catalogs like the [POLARIN Data Hub](https://data.polarin.eu/) and any data repositories developed in the future. Moreover, it promotes **accessibility** for both humans and machines by providing a clear context to the dataset and **reusability** by providing proper attribution and licensing information. 
+
+A (non-exhaustive) list of important *discovery metadata* fields is provided below:
+- **Metadata identifier**: a persistent identifier to locate the dataset, preferably universally and globally unique (e.g., a DOI or UUID). Perhaps the most important metadata field for findability and accessibility.
+- **Title**: A clear, descriptive name for the dataset.
+- **Summary**: A short description of the meaning and context of the dataset (often erroneously called "abstract").
+- **Conventions**: The standards followed by the dataset (e.g., [Attribute Convention for Data Discovery (ACDD)](https://wiki.esipfed.org/Attribute_Convention_for_Data_Discovery_1-3) or [Climate and Forecast (CF) conventions](https://cfconventions.org/cf-conventions/cf-conventions.html)).
+- **Creator name**: The name of the single person that created the dataset (e.g., the PI of the project). The institution of the data creator is always responsible for the dataset, and not the data creator itself. Any contributors should be listed in a seperate metadata field that lists all contributors.
+- **Institution name**: The name of the institution responsible for the dataset (e.g., "Alfred Wegener Institute"), i.e. the institution that the data creator is affiliated with. The institution is always the organization that is responsible for the dataset, and not the data creator itself.
+- **Keywords**: Terms to improve (machine-)searchability (e.g., "Arctic," "sea ice," "temperature", "GCMDSK: EARTH SCIENCE > CLIMATE INDICATORS > CRYOSPHERIC INDICATORS > ICE EXTENT").
+- **Project**: The project(s) to which the dataset belong(s) (e.g., "POLARIN").
+- **Acknowledgements**: How the data can be cited or referenced (e.g., "The data made available through this service were produced and provided with support from the European Union’s Horizon Europe programme under grant agreement No. 101130949 (POLARIN – Polar Research Infrastructure Network).")
+- **License**: How the data can be reused (e.g., CC-BY 4.0).
+
+#### Use Metadata
+**Use metadata** provides the **"how and why"** of the data. It describes the methods that were used to collect and process the data, as well as any limitations or quality indicators. This type of metadata is crucial to ensure both humans and machines can understand and reuse your data correctly, and is neccessary for allowing *technical interoperability* of the data. Some important *use metadata* fields include:
+- **Variable standard name**: The standardized name for each variable in the dataset according to some convention defined linked in the discovery metadata (e.g., "age_of_sea_ice" or "air_potential_temperature").
+- **Variable long name**: A more descriptive name for each variable (e.g., "Age of sea ice in years" or "Air potential temperature in Kelvin").
+- **Units**: The units of measurement for each variable (e.g., "years" or "K").
+- **Methodology**: instruments, algorithms, etc.
+- **Quality indicators**: accuracy, limitations, etc.
+
+It is important to note is that the distinction between discovery and use metadata is not always clear-cut, and some metadata fields can serve both purposes. For example, the "conventions" field can be considered both discovery metadata (as it helps users find datasets that follow specific standards) and use metadata (as it provides information on how the data is structured and should be interpreted).
+
+## What is a Data Management Plan (DMP)?
+A **Data Management Plan (DMP)** is a formal document that outlines how (meta)data will be handled both during a research project and after the project is completed. It describes the types of data that will be collected, how the data will be organized and stored, who will have access to the data, and how the data will be shared and preserved for future use. A DMP is an essential tool for ensuring that research data is managed in a way that promotes its findability, accessibility, interoperability, and reusability (FAIR principles) while also respecting ethical considerations and legal requirements (CARE principles).
+
+In the context of POLARIN, there are two levels of DMPs to consider:
+1. **General POLARIN DMP**: This is a high-level document that outlines the overall data management strategy for the entire POLARIN project. It includes general policies, standards, and guidelines that all POLARIN TAs are expected to follow. The general POLARIN DMP can be found [here](https://doi.org/10.5281/zenodo.18324669).
+2. **TA project DMP**: Each POLARIN TA project is required to develop its own DMP that is specific to the data management needs of that project. The TA project DMP should align with the general POLARIN DMP but also include more detailed information about the specific datasets being collected, how they will be structured and documented, and how they will be shared and preserved. The TA project DMP should be developed in consultation with POLARIN data management experts. For more details on the TA project DMP requirements, please refer to the general POLARIN DMP or contact [POLARIN TA management](mailto:polarin_ta@listserv.dfn.de).
+
+
+<div style="max-width: 1080px;">
+
+![The purpose of a Data Management Plan (DMP). Source: [FAIR Wizard](https://fair-wizard.com/blog/about-data-management-planning), licensed CC-BY 4.0](../sources/images/DMP.png)
+*The purpose of a Data Management Plan (DMP). Source: [FAIR Wizard](https://fair-wizard.com/blog/about-data-management-planning), licensed CC-BY 4.0* 
+
+</div>
+
+## <a id='polarin_requirements'></a> POLARIN (meta)data requirements for TA projects
+To limit the burden of data providers, POLARIN only requires the following metadata elements for data originating from TA projects:
+- **Acknowledgement** of POLARIN funding: "The data made available through this service were produced and provided with support from the European Union’s Horizon Europe programme under grant agreement No. 101130949 (POLARIN – Polar Research Infrastructure Network)." Any form of acknowledgement in free text is allowed here, as long as the acknowledgement contains the grant agreement number (101130949). 
+- **License**: CC-BY 4.0 (or a more permissive license). As a result of the Open Science policy that POLARIN adheres to and promotes, POLARIN requires the use of the CC-BY 4.0 (or a more permissive) license by default.  
+
+To check whether your dataset meets the POLARIN requirements, you can use the [POLARIN metadata checklist](#polarin_checklist) provided below. Besides these mandatory elements, POLARIN provides recommendations for other metadata fields that are not mandatory but are highly recommended to ensure the findability, accessibility, and reusability of the data. These recommendations are based on the FAIR data principles (read more in [this notebook](../data_crash_course/01_FAIR.ipynb)) and are also outlined in the [POLARIN Architecture Design Document](https://github.com/polarin-he/va_add.git) and POLARIN Data Stewardship Brochure (*to be released*). 
+
+## <a id='polarin_checklist'></a> Metadata checklist for a typical POLARIN TA dataset
+This checklist includes both mandatory and recommended metadata fields, along with their purpose and examples. It is important to note that the checklist is not exhaustive and may be updated in the future as new requirements or recommendations arise. How the metadata is provided depends on the standardized metadata schema used (e.g., ACDD, CF conventions, ISO 19115, etc.), and mappings between metadata elements and most common metadata standards are provided in the [POLARIN Architecture Design Document](https://github.com/polarin-he/va_add.git).
+
+<div style="max-width: 1080px;">
+
+| **Requirement level for TA data** | **Element**             | **Purpose**                                                                                                                                                                                                                                                     |
+|-----------------------------------|-------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Required                          | License                 | Providing a license in the metadata clarifies how others can legally use, share, or adapt your data, ensuring compliance with funder requirements and promoting responsible reuse\. In POLARIN, a CC\-BY 4\.0 \(or a more permissive license\) is required\.    |
+| Required                          | Acknowledgement         | Providing an acknowledgement in the metadata ensures proper credit is given to contributors, funders, and data sources, fostering transparency and ethical reuse\. In POLARIN, the Grant Agreement number 101130949 should be provided in this metadata field\. |
+| Optional                          | Metadata identifier     | A unique identifier for the dataset\. This is used to avoid duplicate records in aggregator catalogues\. Utilisation of UUID with a namespace prefix is recommended\.                                                                                           |
+| Optional                          | Last update of metadata | An ISO8601 datetime for the last update of the metadata record\.                                                                                                                                                                                                |
+| Optional                          | Title                   | To provide a brief explanatory title for the dataset                                                                                                                                                                                                            |
+| Optional                          | Abstract                | A short summary of the dataset, its purpose and how it was generated\.                                                                                                                                                                                          |
+| Optional                          | Temporal Extent         | The temporal spanning of the dataset\. This can be a multi temporal dataset\.                                                                                                                                                                                   |
+| Optional                          | Geographical Extent     | The geographical location of the dataset\. This can be a point, a bounding box, trajectory or a polygon\.                                                                                                                                                       |
+| Optional                          | Keywords                | Keywords describing the dataset\. Ideally this comes from controlled vocabularies and describes the variables of the dataset\.                                                                                                                                  |
+| Optional                          | Personnel               | Identification of all people that have contributed to the dataset\. This requires full name, email, affiliation and a role description in the dataset\. The latter has to come from a controlled vocabulary\.                                                   |
+| Optional                          | Publisher               | This is identification of the data centre publishing the data\. It contains a long and short name for the data centre and URL to the landing page\.                                                                                                             |
+| Optional                          | Use constraint          | This is a license for the data\. This is a URL to the license text and an identifier\. Utilisation of SPDX is recommended\.                                                                                                                                     |
+| Optional                          | Data Access             | This provides direct access to the dataset for download etc\. It is not a landing page, but a direct link to the data and indication using a controlled vocabulary of the access mechanism \(ranging from direct download to OPeNDAP and OGC WMS\)\.            |
+| Optional                          | Project                 | A list of projects that has contributed to the creation of the dataset\. Polarin has to be one of the projects\.                                                                                                                                                |
+
+</div>
+
+## What file format should I use for my POLARIN TA dataset?
+There are no strict requirements for file formats in POLARIN, but use self-descriptive **machine-readable formats** wherever possible to ensure your data is accessible and reusable out-of-the-box. POLARIN recommends either ACDD-compliant CF-NetCDF or Darwin Core Archive (DwC-A) for POLARIN TA datasets, depending on the type of data being collected. Other popular formats are listed in the table below, along with their openness, FAIRness, and suitability for different types of data:
+
+<div style="max-width: 1080px;">
+
+| **Format**                   | **Openness** | **Inherently FAIR?** | **Most suitable for**                                           | **Notes**                                                                                                                                                       |
+|------------------------------|--------------|----------------------|-----------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **ACDD-compliant CF-NetCDF** | Open         | ✅ Yes                | Multi-dimensional scientific data (e.g., climate, oceanography) | Embeds CF and ACDD metadata. Most popular format for this purpose.                                                                                              |
+| **Darwin Core Archive**      | Open         | ✅ Yes                | Biodiversity/ecological data                                    | Uses controlled vocabularies and standardized structure. Most popular data format for this purpose.                                                             |
+| **Zarr (.zarr)**             | Open         | ⚠️ Partially         | Large multi-dimensional datasets (e.g., climate, oceanography)  | Self-describing but needs additional metadata schemas (e.g., CF Conventions). Not (yet) as widely-adopted as NetCDF.                                            |
+| **Parquet (.parquet)**       | Open         | ⚠️ Partially         | Large tabular datasets (e.g., data analysis, machine learning)  | Self-describing but needs additional metadata schemas. Not (yet) as widely-adopted as NetCDF.                                                                   |
+| **JSON-LD (.jsonld)**        | Open         | ❌ No                 | Structured data with linked metadata                            | Requires explicit metadata schemas (e.g., Schema.org).                                                                                                          |
+| **GeoJSON (.geoJSON)**       | Open         | ❌ No                 | Geospatial data (e.g., mapping, GIS)                            | Requires additional metadata (e.g., coordinate reference systems, controlled vocabularies).                                                                     |
+| **CSV (.csv)**               | Open         | ❌ No                 | Simple tabular data, widely compatible                          | Requires external metadata files (e.g., README, separate metadata records). Requires a separate metadata file (e.g., JSON-LD or XML) to ensure FAIR compliance. |
+| **Excel (.xlsx)**            | Closed       | ❌ No                 | Simple tabular data, proprietary format                         | Not recommended for any purpose                                                                                                                                 |
+| **Word (.docx)**             | Closed       | ❌ No                 | Text-based data, proprietary format                             | Not recommended for any purpose                                                                                                                                 |
+
+</div>
+
+## Tools for Metadata Creation
+Use these **beginner-friendly tools** to create compliant metadata:
+
+- **Template Generators**:
+Template generators are useful for creating metadata templates that adhere to specific standards. They are most useful before you start collecting data, as they provide a structured framework for capturing metadata consistently. Some popular template generators include:
+  - [CF-NetCDF](https://www.nordatanet.no/aen/template-generator/config%3DCF-NetCDF): Pre-structured templates for climate/forecast data.
+  - [Darwin Core Archive (DwC-A)](https://www.nordatanet.no/aen/template-generator/config%3DDarwin%20Core): Pre-structured templates for biodiversity/ecological data.
+
+- **Compliance Checkers**:
+Compliance checkers can help you ensure that your metadata adheres to specific standards and conventions. They are most useful after you have created your metadata, as they can validate your metadata against the required standards. Some popular compliance checkers include:
+  - [SIOS Dataset validation form](https://sios-svalbard.org/dataset_validation/form): Validate NetCDF files against **Climate and Forecast convention (CF)** and/or **Attribute Convention for Data Discovery (ACDD)** using a simple web-based interface.
+  - [IOOS Compliance Checker](https://ioos.github.io/compliance-checker-wasm-web/ioos_cc_browser.html): Validate NetCDF files against **Climate and Forecast convention (CF)**, **Attribute Convention for Data Discovery (ACDD)**, and many other conventions via a web-based interface. Also available as a Python package or via an API.
+
+- **Conversion Tools**:
+While they are rare, conversion tools can help you convert your data and metadata from one format to another, ensuring that it adheres to the required standards. They are most useful when you have already collected your data in a different format and need to convert it to a compliant format. Some popular conversion tools include:
+  - [Rosetta](https://rosetta.nersc.no/): Convert **CSV/XLSX to CF-NetCDF** for standardized metadata.
+
+---
+
+#### References used in this notebook
+- [POLARIN Data Management Plan (DMP) V1.3](https://doi.org/10.5281/zenodo.18324669) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18324669.svg)](https://doi.org/10.5281/zenodo.18324669), last accessed on 22-06-2026.
+- [Description of Attribute Convention for Data Discovery (ACDD)](https://wiki.esipfed.org/Attribute_Convention_for_Data_Discovery_1-3), last accessed on 22-06-2026.
+- [Description of Climate and Forecast (CF) conventions](https://cfconventions.org/cf-conventions/cf-conventions.html), last accessed on 22-06-2026.
+- [Data versus metadata](https://dataedo.com/blog/data-vs-metadata), Dataedo, licensed CC-BY 4.0, last accessed on 22-06-2026.
+
+#### Find additional data stewardship training resources in the POLARIN Training Resources Database!
+POLARIN has prepared a comprehensive list of training resources on data stewardship, covering the entire data lifetime cycle: from data collection, to transformation, curation, analysis, publication, and more. You can find the POLARIN Training Resources Database [here](https://docs.google.com/spreadsheets/d/1ny4goRAzt8Aj-uqvES-k1lRfJwxhZ0Fb/edit?usp=sharing&ouid=113232285459718566773&rtpof=true&sd=true). Feel free to contribute to the database by adding your own resources, or by suggesting new resources to be added.
+
+> NOTE: Be sure to navigate to the second sheet to view the data stewardship resources! 
+
+#### License
+This notebook is licensed under [AGPLv3](https://www.gnu.org/licenses/gpl-3.0.html). You are free to use, adapt, and share it, provided you attribute POLARIN and release derivatives under the same license.
+
+**Attribution**:
+> Developed as part of the POLARIN project (Grant Agreement No. 101130949).

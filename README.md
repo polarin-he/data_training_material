@@ -1,10 +1,10 @@
 # POLARIN Data Crash Course
-This repository contains a concise, practical data stewardship crash course you can use immediately. It is provided as Jupyter Notebooks with Markdown/HTML exports and supporting images so you can read, run and adapt the material locally.
+This repository contains a concise, practical data stewardship crash course you can use immediately, and can be found in the `data_crash_course` directory. It is provided as Jupyter Notebooks with Markdown/HTML/PDF exports to enhance accessibility and supporting images so you can read, run and adapt the material locally. Additional accessibility pathways are identified as high priority for future development.
 
 ## What you'll get
-- Interactive lessons in `data_crash_course/` (open in JupyterLab/Notebook)
-- Markdown/HTML lesson exports if you prefer reading without running notebooks
-- A starter `polarin_template.ipynb` you can copy to document and package your dataset
+- Interactive lessons in `data_crash_course/` (open in JupyterHub/your Integrated Development Environment (IDE) of choice)
+- Markdown/HTML/PDF exports of the same notebooks if you prefer to access the material in different format. Please note: this removes any interactivity of the content.
+- A template `polarin_template.ipynb` that you can use to create your own notebook and contribute to this list of training materials!
 - Supporting images and diagrams in `sources/images/`
 
 ## Quick lesson list
