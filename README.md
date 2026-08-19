@@ -18,12 +18,9 @@ This repository contains a concise, practical data stewardship crash course you 
 - `polarin_template.ipynb` — Notebook template for anyone willing to contribute to these data stewardship training materials
 
 ## Intended audience
-This training material is meant for:
-
-- Polar researchers and data curators within the POLARIN network
-- Data managers and IT professionals in polar research institutions
-- Policy makers and compliance officers in environmental and scientific data governance
-- Anyone involved in (polar) research data collection, lifecycle management, or preservation
+POLARIN aims to create a more inclusive learning environment recognising that effective data management depends on a broad community of stakeholders, including researchers, technical staff, data managers and curators, policymakers, educators, and other users of polar research data. While awareness and understanding of good data practices are important for all these groups, the training materials hosted on this GitHub platform are primarily designed for users directly involved in data stewardship, data management, interoperability, and research data infrastructure development.  
+ 
+Other stakeholders may find selected materials useful for understanding the principles and value of open and FAIR data, but may prefer to access supporting resources through more accessible formats such as guides, presentations, summaries, or training modules. For this reason, a selection of our products is also available in PDF, HTML, and Markdown formats.
 
 ## The POLARIN project 
 POLARIN is a EU-HORIZON2020 project that compiles an international network of polar research infrastructures and their services, aiming at addressing the scientific challenges of the polar regions. The network includes a wide array of complementary and interdisciplinary top level research infrastructures: Arctic and Antarctic research stations, research vessels and icebreakers operating at both poles, observatories, data infrastructures and ice and sediment core repositories.
