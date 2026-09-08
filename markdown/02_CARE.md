@@ -45,14 +45,10 @@ By the end of this notebook, you will be able to:
 ---
 
 #### What are the CARE guiding principles?
-TIn the context of the rise of the FAIR Principles in the community of international data infrastructure builders, the [Global Indigenous Data Alliance (GIDA)](https://www.gida-global.org/care) formulated the CARE Principles to address a clear deficit in FAIR regarding Indigenous peoples rights and interests. ‘CARE’ is the acronym for: Collective Benefit, Authority to Control, Responsibility, and Ethics. The CARE Principles for Indigenous Data Governance were developed to address the unique challenges and ethical considerations of managing Indigenous data. They provide guidance on how to collect, share, and use data in ways that respect Indigenous peoples' rights, interests, and self-determination. 
+In the context of the rise of the FAIR Principles in the community of international data infrastructure builders, the [Global Indigenous Data Alliance (GIDA)](https://www.gida-global.org/careprinciples) formulated the CARE Principles to address a clear deficit in FAIR regarding Indigenous peoples rights and interests (Carroll et al., 2020). ‘CARE’ is the acronym for: Collective Benefit, Authority to Control, Responsibility, and Ethics. The CARE Principles for Indigenous Data Governance were developed to address the unique challenges and ethical considerations of managing Indigenous data. They provide guidance on how to collect, share, and use data in ways that respect Indigenous peoples' rights, interests, and self-determination. 
 
-<div style="max-width: 1080px;">
-
-![Indigenous Peoples’ Rights in Data](../sources/images/CARE_infographic.png)
+![Indigenous Peoples’ Rights in Data](sources/CARE_infographic.png)
 *GIDA has developed a set of rights for Indigenous Peoples’ rights in data. Source: [GIDA](https://doi.org/10.6084/m9.figshare.22138160), licensed CC-BY 4.0.*
-
-</div>
 
 ### Why are the CARE principles needed? 
 Indigenous peoples have historically been excluded from decisions about how their data are collected, used, and shared. The CARE principles address this by:
@@ -96,7 +92,7 @@ The CARE Principles reflect the crucial role of data in advancing Indigenous inn
  | **E2: For justice** | <u>Bad example</u>: Data processes ignore power imbalances or exclude Indigenous representation. <br><u>What to do</u>: Address power imbalances and include representation from relevant Indigenous communities in ethical processes. |
  | **E3: For future use** | <u>Bad example</u>: Data governance ignores potential future harm or misuse. <br><u>What to do</u>: Account for future use and harm in data governance, including metadata about provenance, purpose, and consent limitations. |
 
-### CARE Self-Assessment Checklist
+### CARE Self-Assessment (Meta)data Checklist
 Before working with Indigenous data, ask yourself:
  | Principle | Question |
  |-----------|----------|
@@ -113,7 +109,6 @@ Before working with Indigenous data, ask yourself:
  | **E2** | Have I addressed power imbalances and ensured Indigenous representation in any ethical decisions related to my data? |
  | **E3** | Have I considered future use and potential harm in the governance of my data? |
 
-
 ### CARE and FAIR: Complementary Frameworks
 The **CARE principles** are not a replacement for **FAIR** but rather an **extension** that addresses ethical and cultural considerations. While FAIR focuses on technical aspects of data sharing, CARE ensures that data practices are **ethical, inclusive, and respectful** of Indigenous rights.
  | **FAIR** | **CARE** |
@@ -122,11 +117,13 @@ The **CARE principles** are not a replacement for **FAIR** but rather an **exten
  | Technical guidance for data management. | Ethical and legal guidance for data governance. |
  | Applies to all data. | Specifically addresses Indigenous data. |
 
-For data involving Indigenous peoples, both FAIR and CARE should be applied together to ensure data are both technically and ethically sound.
+⚠️ **Important**: For **data involving Indigenous peoples, both FAIR and CARE should be applied together** to ensure data are both technically and ethically sound.
 
 ---
 
 #### References
+Carroll, S, et al. 2020. The CARE Principles for Indigenous Data Governance. Data Science Journal, 19: XX, pp. 1–12. DOI: https://doi.org/10.5334/dsj-2020-042
+
 Hudson Mauiet et al. *Indigenous Peoples' Rights in Data: a contribution toward Indigenous Research Sovereignty*. (2023).  Frontiers in Research Metrics and Analytics. 8. DOI=10.3389/frma.2023.1173805  https://www.frontiersin.org/articles/10.3389/frma.2023.1173805
 
 Australian Research Data Commons. (2025). *CARE Principles for Indigenous Data Governance*. https://ardc.edu.au/resource/the-care-principles/

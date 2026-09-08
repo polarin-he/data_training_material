@@ -3,7 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>05_DataHub</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>06_DataHub_UseCases</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -7802,24 +7802,26 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="How-to-use-the-POLARIN-Data-Hub?">How to use the POLARIN Data Hub?<a class="anchor-link" href="#How-to-use-the-POLARIN-Data-Hub?">¶</a></h1><div style="
+<h1 id="Use-cases-for-polar-data-discovery-with-the-POLARIN-Data-Hub">Use cases for polar data discovery with the POLARIN Data Hub<a class="anchor-link" href="#Use-cases-for-polar-data-discovery-with-the-POLARIN-Data-Hub">¶</a></h1><style>
+.info-box {
     background-color: rgba(128, 128, 128, 0.1);
-    border-left: 4px solid rgba(128, 128, 128, 0.3);
+    border-left: 4px solid rgba(128, 128, 128, 0.25);
     padding: 10px;
     margin: 10px 0;
     border-radius: 4px;
     font-family: monospace;
     font-size: 0.9em;
     color: #333;
-">
-</div>
-<p><strong>Audience level: Beginner</strong></p>
-<p><strong>Estimated reading time: 20 minutes</strong></p>
+}
+</style>
+<div class="info-box">
+<p><strong>Audience level: Beginner / Intermediate / Advanced (depending on the use case)</strong></p>
+<p><strong>Estimated reading time: 30 minutes</strong></p>
 <p><strong>Contributor: Rachele Bordoni (ETT)</strong></p>
 <p><strong>Date created: 27-05-2026</strong></p>
-<p><strong>Date last modified: 09-06-2026</strong></p>
-<p><strong>License: <a href="https://creativecommons.org/licenses/by/4.0/deed.en">CC BY 4.0</a></strong> </p>
-<p>This notebook gives you a practical overview of the <a href="https://s4polarin.eu/">POLARIN Data Hub</a> and its main tools. By the end, you will know where to find polar datasets, how to explore them visually, and how to understand the Virtual Access framework that makes this data openly available.</p>
+<p><strong>Date last modified: 26-06-2026</strong></p>
+<p><strong>License: <a href="https://creativecommons.org/licenses/by/4.0/deed.en">CC BY 4.0</a></strong> </p></div>
+<p>The POLARIN Data Hub brings together polar research data from across a wide network of Arctic and Antarctic Research Infrastructures. But knowing that the data exists is only the first step — users also need to know <em>how</em> to find what data they need, <em>how</em> to explore them, and <em>how</em> to get them into their analysis workflow. This notebook presents three representative use cases drawn from real POLARIN user personas, each showing a complete workflow from data discovery to download or analysis. By the end of this notebook, you will have seen how three different types of users — an oceanographer, a PhD student, and a policy analyst — can each use the POLARIN Data Hub to meet their specific data needs.</p>
 </div>
 </div>
 </div>
@@ -7833,15 +7835,43 @@ a.anchor-link {
 <hr/>
 <h4 id="Learning-objectives">Learning objectives<a class="anchor-link" href="#Learning-objectives">¶</a></h4><p>By the end of this notebook, you will:</p>
 <ol>
-<li>Understand the purpose and structure of the POLARIN Data Hub.</li>
-<li>Know how to navigate the main sections of the Data Hub.</li>
-<li>Be able to find a dataset, explore it on the map, and understand how to cite it correctly.</li>
+<li>Know how to search and filter the Data Selection by Earth System, Location, and Layer type to identify ERDDAP-accessible datasets.</li>
+<li>Be able to retrieve and visualize oceanographic data programmatically via ERDDAP.</li>
+<li>Understand how to assess data availability and identify gaps using the Data Hub tools.</li>
+<li>Know how to explore polar data interactively using the Data Viewer and export results.</li>
 </ol>
-<h4 id="Prerequisites">Prerequisites<a class="anchor-link" href="#Prerequisites">¶</a></h4><ul>
-<li>No programming knowledge required — this notebook is descriptive and navigational.</li>
+<h4 id=""><a class="anchor-link" href="#">¶</a></h4><h4 id="Prerequisites">Prerequisites<a class="anchor-link" href="#Prerequisites">¶</a></h4><ul>
+<li>Basic familiarity with Python and Jupyter Notebooks (for Use Case 1).</li>
 <li>A web browser and internet access.</li>
-<li>(Optional) Familiarity with basic concepts of FAIR data principles.</li>
+<li>(Optional but recommended) Completion of <em>Notebook 5: How to use the POLARIN Data Hub?</em></li>
 </ul>
+<h4 id="User-Personas">User Personas<a class="anchor-link" href="#User-Personas">¶</a></h4><p>The three use cases in this notebook correspond to three user profiles that represent the POLARIN community:</p>
+<table>
+<thead>
+<tr>
+<th>Use Case</th>
+<th>Persona</th>
+<th>Main tools used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Oceanographer / biogeochemist</td>
+<td>Data Selection, ERDDAP (Python), Data Viewer</td>
+</tr>
+<tr>
+<td>2</td>
+<td>PhD student / graduate researcher</td>
+<td>Data Hub landing page, Data Selection</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Policy analyst / decision maker</td>
+<td>Data Selection, Data Viewer</td>
+</tr>
+</tbody>
+</table>
 <hr/>
 </div>
 </div>
@@ -7853,63 +7883,18 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="1.-What-is-the-POLARIN-Data-Hub?">1. What is the POLARIN Data Hub?<a class="anchor-link" href="#1.-What-is-the-POLARIN-Data-Hub?">¶</a></h2><p>The <a href="https://s4polarin.eu/">POLARIN Data Hub</a> is the central entry point for discovering and accessing polar research data from across the POLARIN network. It aggregates datasets, metadata, and data services from multiple international polar Research Infrastructures (RIs) into a single, unified portal — making polar data more findable, accessible, and reusable for scientists, data stewards, and stakeholders. The Data Hub was developed as part of the POLARIN project, funded by the EU Horizon Europe programme (Grant Agreement No. 101130949).</p>
-<p>The Data Hub aims to bring together:</p>
-<ul>
-<li><strong>research stations</strong> in both the Arctic and Antarctic</li>
-<li><strong>research vessels</strong></li>
-<li><strong>data infrastructures</strong></li>
-<li><strong>core reporitories</strong></li>
-</ul>
-<p>Data is served through a <strong>semantically consistent and standardized metadata catalogue</strong>, making it easier to search, compare, and reuse data across different sources and disciplines.</p>
-<p>The Data Hub is publicly accessible — no login or application is needed to browse and download data.</p>
-<p><strong>The main menu of the Data Hub includes the following sections:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Menu Item</th>
-<th>What it does</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Research Infrastructures</td>
-<td>Directory of all POLARIN RIs, with links to their websites and a shortcut to filter the Data Selection by RI</td>
-</tr>
-<tr>
-<td>Virtual Access</td>
-<td>Description of the open data access framework</td>
-</tr>
-<tr>
-<td>Data Selection</td>
-<td>Search and filter datasets in the catalog</td>
-</tr>
-<tr>
-<td>Data Viewer</td>
-<td>Visualize data coverage on an interactive map</td>
-</tr>
-<tr>
-<td>POLARIN PROMPT</td>
-<td>AI-powered interface to query polar data</td>
-</tr>
-<tr>
-<td>Reanalysis &amp; Plots</td>
-<td>Pre-built dashboards for reanalysis data</td>
-</tr>
-<tr>
-<td>Data Cookbook</td>
-<td>Interactive Jupyter Book with data analysis examples</td>
-</tr>
-<tr>
-<td>POLARIN Zenodo Community</td>
-<td>Open repository of published POLARIN datasets</td>
-</tr>
-<tr>
-<td>GitHub</td>
-<td>Code and notebooks from the POLARIN community</td>
-</tr>
-</tbody>
-</table>
+<h1 id="Use-Case-1:-Advanced-analysis-of-water-column-properties">Use Case 1: Advanced analysis of water column properties<a class="anchor-link" href="#Use-Case-1:-Advanced-analysis-of-water-column-properties">¶</a></h1><p><strong>Persona</strong>: Oceanographer or biogeochemist — an advanced user with scripting experience.</p>
+<p><strong>Goal</strong>: Retrieve and analyze multi-depth oceanographic data (temperature, salinity, dissolved oxygen) from a specific polar region to understand water column gradients and their seasonal variability.</p>
+<p><strong>Workflow overview</strong>:</p>
+<ol>
+<li>Use the Data Selection to identify datasets with ERDDAP access, filtered by Earth System and Location.</li>
+<li>Explore the dataset metadata on GeoNetwork by clicking on the GeoNetwork button and search for the ERDDAP link in the metadata record.</li>
+<li>Note the ERDDAP dataset ID of the datasets of interest.</li>
+<li>Inspect available variables on ERDDAP and identify datasets containing the parameters of interest.</li>
+<li>Query the data programmatically via ERDDAP using Python.</li>
+<li>Visualize water column profiles and time series.</li>
+<li>Export the data for further analysis.</li>
+</ol>
 </div>
 </div>
 </div>
@@ -7920,19 +7905,35 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<hr/>
-<h2 id="2.-Research-Infrastructures">2. Research Infrastructures<a class="anchor-link" href="#2.-Research-Infrastructures">¶</a></h2><p><strong>Explanation</strong>:
-The <a href="https://s4polarin.eu/research-infrastructures/">Research Infrastructures</a> section provides a <strong>list</strong> of all polar RIs connected to the POLARIN network. This includes Arctic and Antarctic research stations, research vessels and icebreakers, observatories, and data repositories.</p>
-<p>Each RI is listed with a brief description and a link to its <strong>own website</strong>, where you can find more detailed information about its scientific mandate, location, facilities, and data holdings.</p>
-<p><strong>How to use it</strong>:</p>
-<ol>
-<li>Go to <a href="https://s4polarin.eu/research-infrastructures/">https://s4polarin.eu/research-infrastructures/</a></li>
-<li>Browse the list of RIs to familiarize yourself with the POLARIN network.</li>
-<li>Click the <strong>external link</strong> next to any RI to visit its dedicated website for more information.</li>
-<li>Click the <strong>magnifying glass icon</strong> (🔍) next to any RI to jump directly to the Data Selection pre-filtered for that RI — a quick shortcut to see all datasets contributed by that specific infrastructure.</li>
-</ol>
-<p><strong>Why it matters for data stewardship</strong>:
-knowing which RI produced a dataset helps you correctly acknowledge the data source and understand its geographic and thematic scope — both of which are essential for proper data citation and reuse.</p>
+<h3 id="Step-1-%E2%80%94-Filter-the-Data-Selection-to-find-ERDDAP-accessible-datasets">Step 1 — Filter the Data Selection to find ERDDAP-accessible datasets<a class="anchor-link" href="#Step-1-%E2%80%94-Filter-the-Data-Selection-to-find-ERDDAP-accessible-datasets">¶</a></h3><p>Navigate to the <a href="https://s4polarin.eu/data-catalog/">POLARIN Data Selection</a> and apply the following filters:</p>
+<ul>
+<li><strong>Location</strong>: select <strong>Arctic</strong> (or Antarctic, depending on your study area).</li>
+<li><strong>Earth System</strong>: select <strong>Ocean</strong> to focus on oceanographic datasets.</li>
+<li><strong>Layer type</strong>: select <strong>Layers with data</strong> — this is the key filter that restricts results to datasets that have actual data accessible via ERDDAP (shown as 🟢 green markers in the Data Viewer), excluding metadata-only entries.</li>
+</ul>
+<p>Each dataset has a colored markers in the entry. There are two types of markers — and the distinction matters:</p>
+<table>
+<thead>
+<tr>
+<th>Marker color</th>
+<th>What it means</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🟢 <strong>Green</strong></td>
+<td>Data layer/Layers with data — the dataset contains plottable data. Their values can be displayed and plotted in the <a href="https://s4polarin.eu/data-coverage/data-viewer/">Data Viewer</a></td>
+</tr>
+</tbody>
+</table>
+<p>| 🔵 <strong>Blue</strong> | Metadata only — the dataset has a metadata record in the catalogue, but no plottable data is directly accessible through the Viewer.</p>
+<p>Browse the filtered results. Each entry shows the dataset title, description, Earth System and distributing RI. Search for the entries that look relevant to your research question and search for the ERDDAP dataset ID in the GeoNetwork metadata of that entry - you will use these IDs in the next steps to query the data via ERDDAP.</p>
+<p><strong>dataset ID example</strong>
+ERDDAP dataset link: <a href="https://erddap.s4polarin.eu/erddap/tabledap/cnr_iadc_f5ff_4134_70dd.html">https://erddap.s4polarin.eu/erddap/tabledap/cnr_iadc_f5ff_4134_70dd.html</a>
+dataset ID: cnr_iadc_f5ff_4134_70dd</p>
+<blockquote>
+<p>💡 At this stage the Data Selection does not filter by specific variable (e.g., temperature, salinity) — that level of filtering happens in the next step directly on ERDDAP, where you can inspect exactly which variables each dataset contains.</p>
+</blockquote>
 </div>
 </div>
 </div>
@@ -7943,46 +7944,42 @@ knowing which RI produced a dataset helps you correctly acknowledge the data sou
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<hr/>
-<h2 id="3.-Virtual-Access:-open-polar-data-for-everyone">3. Virtual Access: open polar data for everyone<a class="anchor-link" href="#3.-Virtual-Access:-open-polar-data-for-everyone">¶</a></h2><p><strong>Explanation</strong>:
-in the context of POLARIN, <a href="https://s4polarin.eu/virtual-access/">Virtual Access</a> (VA) refers to the provision of user-friendly, free of charge, and open online access to services provided by polar RIs — including scientific data, metadata, and data services.</p>
-<p>VA is openly available to <strong>all users without a selection process</strong>. It enables researchers, policymakers, and stakeholders by providing evidence-based information for sustainable management of polar environments, particularly in the context of climate change and human activity impacts.</p>
-<p>POLARIN supports VA by connecting data, metadata, data services, and data products from multiple polar RI through the <strong>POLARIN metadata catalogue</strong>. This catalogue provides access to diverse (meta)data sources in a semantically consistent and interoperable manner, and serves them in a way that is compatible with various metadata standards and exchange protocols. The technical and operational work required to host, curate, maintain, and deliver these resources ensures that they remain discoverable, reliable, and usable throughout the project lifetime.</p>
-<blockquote>
-<p>⚠️ <strong>By definition, the POLARIN metadata catalogue the only catalogue that stores POLARIN VA data.</strong> If a dataset from a POLARIN RI is not exposed through the catalogue, it does not count as VA and therefore POLARIN cannot ensure the discoverability of these data through the Data Hub.</p>
-</blockquote>
-<p>All datasets and services provided through VA are integrated into the POLARIN metadata catalogue and exposed through the POLARIN Data Hub in line with <strong>FAIR principles</strong>. In practice, POLARIN VA enforces data integration at the <strong>discovery level</strong>: all VA datasets are Findable, Accessible, and Reusable through the catalogue. Full Interoperability (the "I" in FAIR) is not enforced at this stage, given the varying levels of data architecture maturity across the participating RIs. This means that while you can always find and access VA data through the Data Hub, the format and structure of the underlying data may vary between datasets.</p>
-<p><strong>How to cite POLARIN Virtual Access data</strong>:</p>
-<p>When using data provided through POLARIN Virtual Access, you must:</p>
+<h3 id="Step-2-%E2%80%94-Inspect-variables-on-ERDDAP">Step 2 — Inspect variables on ERDDAP<a class="anchor-link" href="#Step-2-%E2%80%94-Inspect-variables-on-ERDDAP">¶</a></h3><p>Now that you have a list of candidate dataset IDs from the Data Selection, use ERDDAP to check which variables each dataset contains. This is how you identify which datasets have the specific parameters you need (e.g., temperature, salinity, dissolved oxygen).</p>
+<p>You can do this in two ways:</p>
+<p><strong>Option A — via the ERDDAP web interface (no code needed)</strong>:</p>
 <ol>
-<li>Provide the <strong>dataset PID</strong> (e.g., its DOI).</li>
-<li>Acknowledge the <strong>RI</strong> that owns the data.</li>
-<li>Include the following acknowledgement:</li>
+<li>Go to <a href="https://erddap.s4polarin.eu/erddap/tabledap/index.html">https://erddap.s4polarin.eu/erddap/tabledap/index.html</a></li>
+<li>Find your dataset ID in the list and click on it.</li>
+<li>The dataset page lists all available variables with their descriptions and units.</li>
 </ol>
-<blockquote>
-<p><em>"This work used data provided through POLARIN Virtual Access under EU Horizon Europe Grant Agreement No. 101130949."</em></p>
-</blockquote>
-<p>⚠️ <strong>Note</strong>: Always check the individual dataset license for any additional requirements.</p>
+<p><strong>Option B — programmatically (see Step 3 below)</strong>:
+Use the ERDDAP metadata API to inspect variables for all candidate datasets at once.</p>
+<p>Once you have identified which datasets contain the variables of interest, note their <strong>ERDDAP dataset ID</strong> — you will use it to query the actual data in the steps that follow.</p>
 </div>
 </div>
 </div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f6a7b8c9">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=f6a7b8c9">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<hr/>
-<h2 id="4.-Data-Selection">4. Data Selection<a class="anchor-link" href="#4.-Data-Selection">¶</a></h2><p><strong>Explanation</strong>:
-the <a href="https://s4polarin.eu/data-catalog/">Data Selection</a> is the <strong>main search interface</strong> of the POLARIN Data Hub. It lets you browse and filter the unified metadata catalogue to find datasets from across the POLARIN network.</p>
-<p><strong>How to use it</strong>:</p>
-<ol>
-<li>Go to <a href="https://s4polarin.eu/data-catalog/">https://s4polarin.eu/data-catalog/</a></li>
-<li>Use the search bar or filters (by Research Infrastructure, Earth System, Location, etc.) to narrow down datasets.</li>
-<li>Search for a dataset entry to view part of its metadata record — including title, description, Earth System, Research Infrastructure and access links.</li>
-<li>Follow the dataset's DOI or access link to browse its full metadata record and access the data.</li>
-</ol>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-python"><pre><span></span><span class="c1"># Install required packages if needed</span>
+<span class="c1"># !pip install requests pandas matplotlib</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">io</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">"ignore"</span><span class="p">)</span>
+
+<span class="n">ERDDAP_BASE_URL</span> <span class="o">=</span> <span class="s2">"https://erddap.s4polarin.eu/erddap"</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -7993,40 +7990,443 @@ the <a href="https://s4polarin.eu/data-catalog/">Data Selection</a> is the <stro
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Step-3-%E2%80%94-Inspect-the-dataset">Step 3 — Inspect the dataset<a class="anchor-link" href="#Step-3-%E2%80%94-Inspect-the-dataset">¶</a></h3><p>Before querying data, it is good practice to inspect the dataset's available variables and station identifiers. Here we use a CTD dataset from the POLARIN ERDDAP as an example — replace <code>DATASET_ID</code> with the ID of the dataset you identified in Step 1.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=b8c9d0e1">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-python"><pre><span></span><span class="c1"># Replace with the dataset ID you identified in the Data Selection</span>
+<span class="n">DATASET_ID</span> <span class="o">=</span> <span class="s2">"cnr_iadc_f5ff_4134_70dd"</span>
+<span class="n">dataset_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">ERDDAP_BASE_URL</span><span class="si">}</span><span class="s2">/tabledap/</span><span class="si">{</span><span class="n">DATASET_ID</span><span class="si">}</span><span class="s2">"</span>
+
+<span class="c1"># --- List available variables ---</span>
+<span class="n">metadata_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">ERDDAP_BASE_URL</span><span class="si">}</span><span class="s2">/info/</span><span class="si">{</span><span class="n">DATASET_ID</span><span class="si">}</span><span class="s2">/index.csv"</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">metadata_resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">metadata_url</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+    <span class="n">metadata_resp</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+    <span class="n">metadata_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">(</span><span class="n">metadata_resp</span><span class="o">.</span><span class="n">text</span><span class="p">),</span> <span class="n">sep</span><span class="o">=</span><span class="s1">','</span><span class="p">)</span>
+    <span class="n">variables_df</span> <span class="o">=</span> <span class="n">metadata_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">metadata_df</span><span class="p">[</span><span class="s1">'Row Type'</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s1">'variable'</span><span class="p">,</span> <span class="s1">'dimension'</span><span class="p">])]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">variables_df</span> <span class="o">=</span> <span class="n">variables_df</span><span class="p">[[</span><span class="s1">'Variable Name'</span><span class="p">,</span> <span class="s1">'Data Type'</span><span class="p">]]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Dataset: </span><span class="si">{</span><span class="n">DATASET_ID</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Available variables:"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">variables_df</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Could not retrieve metadata for </span><span class="si">{</span><span class="n">DATASET_ID</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=c9d0e1f2">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-python"><pre><span></span><span class="c1"># --- List unique station IDs ---</span>
+<span class="c1"># Note: not all datasets have a 'station_id' column.</span>
+<span class="c1"># If the query fails, check the variable list above for the correct identifier column.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">platforms_resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+        <span class="n">dataset_url</span> <span class="o">+</span> <span class="s2">".csv?station_id&amp;distinct()"</span><span class="p">,</span>
+        <span class="n">timeout</span><span class="o">=</span><span class="mi">30</span>
+    <span class="p">)</span>
+    <span class="n">platforms_resp</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+    <span class="c1"># ERDDAP returns units in row 2 — skip it</span>
+    <span class="n">platforms_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">(</span><span class="n">platforms_resp</span><span class="o">.</span><span class="n">text</span><span class="p">),</span> <span class="n">sep</span><span class="o">=</span><span class="s1">','</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Available stations (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">platforms_df</span><span class="p">)</span><span class="si">}</span><span class="s2">):"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">platforms_df</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Could not retrieve station list: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Tip: check the variable names above and adjust the query column accordingly."</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d0e1f2a3">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Step-4-%E2%80%94-Query:-Temperature-and-salinity-profiles-by-station-and-time">Step 4 — Query: Temperature and salinity profiles by station and time<a class="anchor-link" href="#Step-4-%E2%80%94-Query:-Temperature-and-salinity-profiles-by-station-and-time">¶</a></h3>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=e1f2a3b4">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-python"><pre><span></span><span class="c1"># Query parameters — adjust to your dataset and research question</span>
+<span class="n">station_id</span> <span class="o">=</span> <span class="s2">"vws21g"</span>
+<span class="n">variables</span>  <span class="o">=</span> <span class="s2">"time,latitude,longitude,depth,TEMP"</span>
+
+<span class="c1"># --- Automatically detect the actual time range of the dataset ---</span>
+<span class="c1"># This avoids hardcoding dates that may fall outside the dataset's coverage</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">meta_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">ERDDAP_BASE_URL</span><span class="si">}</span><span class="s2">/info/</span><span class="si">{</span><span class="n">DATASET_ID</span><span class="si">}</span><span class="s2">/index.csv"</span>
+    <span class="n">meta_resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">meta_url</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+    <span class="n">meta_resp</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+    <span class="n">meta_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">(</span><span class="n">meta_resp</span><span class="o">.</span><span class="n">text</span><span class="p">))</span>
+
+    <span class="c1"># Extract actual_range for the time variable</span>
+    <span class="n">time_row</span> <span class="o">=</span> <span class="n">meta_df</span><span class="p">[</span>
+        <span class="p">(</span><span class="n">meta_df</span><span class="p">[</span><span class="s1">'Variable Name'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'time'</span><span class="p">)</span> <span class="o">&amp;</span>
+        <span class="p">(</span><span class="n">meta_df</span><span class="p">[</span><span class="s1">'Attribute Name'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'actual_range'</span><span class="p">)</span>
+    <span class="p">]</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">time_row</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+        <span class="n">time_range</span> <span class="o">=</span> <span class="n">time_row</span><span class="p">[</span><span class="s1">'Value'</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">time_start</span><span class="p">,</span> <span class="n">time_end</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">time_range</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">','</span><span class="p">)]</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Dataset time range: </span><span class="si">{</span><span class="n">time_start</span><span class="si">}</span><span class="s2"> → </span><span class="si">{</span><span class="n">time_end</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Fallback: use a broad range and let ERDDAP clip it</span>
+        <span class="n">time_start</span> <span class="o">=</span> <span class="s2">"2000-01-01T00:00:00Z"</span>
+        <span class="n">time_end</span>   <span class="o">=</span> <span class="s2">"2100-01-01T00:00:00Z"</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Could not detect time range automatically — using full range fallback."</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">time_start</span> <span class="o">=</span> <span class="s2">"2000-01-01T00:00:00Z"</span>
+    <span class="n">time_end</span>   <span class="o">=</span> <span class="s2">"2100-01-01T00:00:00Z"</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Time range detection failed (</span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">) — using full range fallback."</span><span class="p">)</span>
+
+<span class="c1"># --- Build and run the query ---</span>
+<span class="n">query_url</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">dataset_url</span><span class="si">}</span><span class="s2">.csv"</span>
+    <span class="sa">f</span><span class="s2">"?</span><span class="si">{</span><span class="n">variables</span><span class="si">}</span><span class="s2">"</span>
+    <span class="sa">f</span><span class="s1">'&amp;station_id="</span><span class="si">{</span><span class="n">station_id</span><span class="si">}</span><span class="s1">"'</span>
+    <span class="sa">f</span><span class="s2">"&amp;time&gt;=</span><span class="si">{</span><span class="n">time_start</span><span class="si">}</span><span class="s2">"</span>
+    <span class="sa">f</span><span class="s2">"&amp;time&lt;=</span><span class="si">{</span><span class="n">time_end</span><span class="si">}</span><span class="s2">"</span>
+    <span class="sa">f</span><span class="s1">'&amp;orderBy("time,depth")'</span>
+<span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">data_resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">query_url</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+    <span class="n">data_resp</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+    <span class="c1"># ERDDAP returns column names in row 1 and units in row 2 — skip the units row</span>
+    <span class="n">data_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">(</span><span class="n">data_resp</span><span class="o">.</span><span class="n">text</span><span class="p">),</span> <span class="n">sep</span><span class="o">=</span><span class="s1">','</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">data_df</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"No data returned. Check the station ID or variable names."</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">data_df</span><span class="p">[</span><span class="s1">'time'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data_df</span><span class="p">[</span><span class="s1">'time'</span><span class="p">])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Retrieved </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data_df</span><span class="p">)</span><span class="si">}</span><span class="s2"> records for station '</span><span class="si">{</span><span class="n">station_id</span><span class="si">}</span><span class="s2">'"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Time range: </span><span class="si">{</span><span class="n">data_df</span><span class="p">[</span><span class="s1">'time'</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">data_df</span><span class="p">[</span><span class="s1">'time'</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Depth range: </span><span class="si">{</span><span class="n">data_df</span><span class="p">[</span><span class="s1">'depth'</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> m to </span><span class="si">{</span><span class="n">data_df</span><span class="p">[</span><span class="s1">'depth'</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> m"</span><span class="p">)</span>
+        <span class="n">display</span><span class="p">(</span><span class="n">data_df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Query failed: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"URL attempted: </span><span class="si">{</span><span class="n">query_url</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Tip: open the URL in a browser to see the ERDDAP error message."</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f2a3b4c5">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Step-5-%E2%80%94-Visualize:-Time-series-and-depth-profile">Step 5 — Visualize: Time series and depth profile<a class="anchor-link" href="#Step-5-%E2%80%94-Visualize:-Time-series-and-depth-profile">¶</a></h3>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=a3b4c5d6">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-python"><pre><span></span><span class="c1"># Guard: only plot if data was retrieved successfully</span>
+<span class="k">if</span> <span class="s1">'data_df'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">()</span> <span class="ow">or</span> <span class="n">data_df</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"No data available to plot. Run the query cell first."</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+    <span class="c1"># --- Left: Temperature time series (surface only, depth &lt;= 10 m) ---</span>
+    <span class="n">surface</span> <span class="o">=</span> <span class="n">data_df</span><span class="p">[</span><span class="n">data_df</span><span class="p">[</span><span class="s1">'depth'</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">surface</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+        <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">'No surface data (depth ≤ 10 m)'</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">'center'</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">'center'</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">surface</span><span class="p">[</span><span class="s1">'time'</span><span class="p">],</span> <span class="n">surface</span><span class="p">[</span><span class="s1">'TEMP'</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">'steelblue'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"Time"</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Temperature (°C)"</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Surface temperature — station </span><span class="si">{</span><span class="n">station_id</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">'x'</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+
+    <span class="c1"># --- Right: Mean temperature profile with depth ---</span>
+    <span class="n">profile</span> <span class="o">=</span> <span class="n">data_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'depth'</span><span class="p">)[</span><span class="s1">'TEMP'</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">profile</span><span class="p">[</span><span class="s1">'TEMP'</span><span class="p">],</span> <span class="n">profile</span><span class="p">[</span><span class="s1">'depth'</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">'darkorange'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">'o'</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>  <span class="c1"># depth increases downward</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"Mean Temperature (°C)"</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Depth (m)"</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Mean temperature profile — station </span><span class="si">{</span><span class="n">station_id</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="sa">f</span><span class="s2">"POLARIN ERDDAP | Dataset: </span><span class="si">{</span><span class="n">DATASET_ID</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'grey'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b4c5d6e7">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Step-6-%E2%80%94-Export-data-for-further-analysis">Step 6 — Export data for further analysis<a class="anchor-link" href="#Step-6-%E2%80%94-Export-data-for-further-analysis">¶</a></h3>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=c5d6e7f8">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-python"><pre><span></span><span class="c1"># Save to CSV for use in other tools (MATLAB, R, Excel, etc.)</span>
+<span class="k">if</span> <span class="s1">'data_df'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">()</span> <span class="ow">or</span> <span class="n">data_df</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"No data to export. Run the query cell first."</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">output_filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"polarin_</span><span class="si">{</span><span class="n">DATASET_ID</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">station_id</span><span class="si">}</span><span class="s2">.csv"</span>
+    <span class="n">data_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">output_filename</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Data saved to: </span><span class="si">{</span><span class="n">output_filename</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Shape: </span><span class="si">{</span><span class="n">data_df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> rows × </span><span class="si">{</span><span class="n">data_df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2"> columns"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d6e7f8a9">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<blockquote>
+<p>📌 <strong>ERDDAP also supports direct download in other formats</strong> — replace <code>.csv</code> in the query URL with <code>.nc</code> (NetCDF), <code>.json</code>, <code>.mat</code> (MATLAB), or <code>.htmlTable</code> for a quick browser preview. Example:</p>
+<pre><code>https://erddap.s4polarin.eu/erddap/tabledap/{datasetID}.nc?{variables}&amp;{constraints}
+</code></pre>
+</blockquote>
 <hr/>
-<h2 id="5.-Data-Viewer">5. Data Viewer<a class="anchor-link" href="#5.-Data-Viewer">¶</a></h2><p><strong>Explanation</strong>:
-the <a href="https://s4polarin.eu/data-coverage/data-viewer/">Data Viewer</a> is an <strong>interactive map-based tool</strong> that lets you visually explore the spatial coverage of datasets available in the POLARIN network. It is particularly useful for quickly assessing which data is available in a given region, before committing to a download.</p>
-<p><strong>How to use it</strong>:</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e7f8a9b0">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="Use-Case-2:-Student-research-%E2%80%94-Where-is-there-insufficient-data?">Use Case 2: Student research — Where is there insufficient data?<a class="anchor-link" href="#Use-Case-2:-Student-research-%E2%80%94-Where-is-there-insufficient-data?">¶</a></h1><p><strong>Persona</strong>: PhD student or graduate researcher — an intermediate user exploring the polar data landscape.</p>
+<p><strong>Goal</strong>: Investigate data availability across Arctic or Antarctic regions to identify spatial and thematic gaps, and propose areas where additional observations would be valuable.</p>
+<p><strong>Workflow overview</strong>:</p>
 <ol>
-<li>Go to <a href="https://s4polarin.eu/data-coverage/data-viewer/">https://s4polarin.eu/data-coverage/data-viewer/</a></li>
-<li>Pan and zoom on the map to navigate to your area of interest or use the filters on the lateral menu.</li>
-<li>Use the layer controls to toggle between different datasets.</li>
-<li>Click on data points or to get more details, access the data and metadata and, whenever possible, plot the data.</li>
+<li>Review Data Coverage section on the Data Hub landing page.</li>
+<li>Explore the Data Selection filtered by Location and Earth System Sphere.</li>
+<li>Identify underrepresented regions.</li>
+<li>Document gaps and hypothesize where new data collection would be most impactful.</li>
 </ol>
-<p><strong>When to use the Data Viewer vs. the Data Selection</strong>:</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f8a9b0c1">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Step-1-%E2%80%94-Check-the-Data-Coverage-on-the-Landing-Page">Step 1 — Check the Data Coverage on the Landing Page<a class="anchor-link" href="#Step-1-%E2%80%94-Check-the-Data-Coverage-on-the-Landing-Page">¶</a></h3><p>Start at the <a href="https://s4polarin.eu/">POLARIN Data Hub landing page</a>.</p>
+<p>The Data Coverage panel shows a general dataset overview, including:</p>
+<ul>
+<li><strong>Total number of datasets</strong> currently available in the Hub.</li>
+<li><strong>Total number of parameters</strong> covered across all datasets, also divided by ice, marine and atmosphere related parameters.</li>
+<li>The <strong>number of Research Infrastructures (RI)</strong> currently available in the Hub.</li>
+</ul>
+<p>These numbers give you a quick sense of the overall data volume. Importantly, they are updated as new datasets are ingested — so they reflect the current state of the Hub.</p>
+<p>The second panel, the <strong>Dataset by component in the Earth system</strong> panel lets you filter by:</p>
+<ul>
+<li><strong>Earth System</strong> (Ocean, Sea Ice, Atmosphere, Glaciers, Permafrost, etc.)</li>
+</ul>
+<p>The last panel, the <strong>Dataset by type of research infrastructure</strong> panel lets you filter by:</p>
+<ul>
+<li><strong>RI</strong> (Arctic RI, Antarctic RI, Vessel, Observatories)</li>
+</ul>
+<p>Try clicking on different Earth Systems and note how the dataset count change — this already gives you a spatial and thematic picture of data availability.</p>
+<blockquote>
+<p>🗒️ <strong>Exercise</strong>: Record the number of datasets available for each Earth Systems. Which system have the most data? Which have the least?</p>
+</blockquote>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a9b0c1d2">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Step-2-%E2%80%94-Explore-the-Data-Selection">Step 2 — Explore the Data Selection<a class="anchor-link" href="#Step-2-%E2%80%94-Explore-the-Data-Selection">¶</a></h3><p>Navigate to the <a href="https://s4polarin.eu/data-catalog/">Data Selection</a> and use the filters systematically to assess coverage:</p>
+<p><strong>By Earth Systems</strong>:</p>
+<ul>
+<li>Select one system at a time (e.g., <em>Sea Ice</em>) and note how many datasets appear.</li>
+<li>Compare this to a high-coverage system (e.g., <em>Ocean</em>).</li>
+</ul>
+<p><strong>By RI</strong>:</p>
+<ul>
+<li>Click on the <strong>RI</strong> filter and explore which Earth Systems are most represented (e.g., Ocean, Atmosphere) and which are rarer (e.g., Permafrost, Lake and rivers).</li>
+</ul>
+<p><strong>By RI type</strong>:</p>
+<ul>
+<li>Use the <strong>RI type</strong> filter and explore where the data are coming from.</li>
+</ul>
+<p><strong>By region</strong>:</p>
+<ul>
+<li>Use the <strong>Location</strong> filter or the station map to compare Arctic vs. Antarctic coverage. Are there geographic areas with no data points?</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b0c1d2e3">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Step-3-%E2%80%94-Quantify-data-availability-via-ERDDAP">Step 3 — Quantify data availability via ERDDAP<a class="anchor-link" href="#Step-3-%E2%80%94-Quantify-data-availability-via-ERDDAP">¶</a></h3><p>For a more quantitative assessment, you can query the ERDDAP to count datasets and their temporal coverage programmatically.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=c1d2e3f4">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">io</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">"ignore"</span><span class="p">)</span>
+
+<span class="n">ERDDAP_BASE_URL</span> <span class="o">=</span> <span class="s2">"https://erddap.s4polarin.eu/erddap"</span>
+
+<span class="c1"># Get full list of available tabledap datasets</span>
+<span class="c1"># We request datasetID and tabledap URL from the allDatasets virtual table</span>
+<span class="n">datasets_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">ERDDAP_BASE_URL</span><span class="si">}</span><span class="s2">/tabledap/allDatasets.csv?datasetID%2Ctabledap"</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">datasets_resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">datasets_url</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+    <span class="n">datasets_resp</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+    <span class="c1"># ERDDAP returns units in row 2 — skip it</span>
+    <span class="n">datasets_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">(</span><span class="n">datasets_resp</span><span class="o">.</span><span class="n">text</span><span class="p">),</span> <span class="n">sep</span><span class="o">=</span><span class="s1">','</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="c1"># Keep only rows that have a tabledap URL (excludes the allDatasets entry itself)</span>
+    <span class="n">datasets_df</span> <span class="o">=</span> <span class="n">datasets_df</span><span class="p">[</span><span class="n">datasets_df</span><span class="p">[</span><span class="s1">'tabledap'</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">datasets_df</span><span class="p">[</span><span class="s1">'tabledap'</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">''</span><span class="p">)]</span>
+    <span class="n">datasets_df</span> <span class="o">=</span> <span class="n">datasets_df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Total tabledap datasets available: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">datasets_df</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">datasets_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Could not retrieve dataset list: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=d2e3f4a5">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-python"><pre><span></span><span class="c1"># Explore dataset IDs by prefix — POLARIN datasets follow naming conventions</span>
+<span class="c1"># that often encode the source RI (e.g., 'cnr_iadc_' = CNR/IADC, 'ARICE_' = ARICE)</span>
+
+<span class="k">if</span> <span class="s1">'datasets_df'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">()</span> <span class="ow">or</span> <span class="n">datasets_df</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Dataset list not available. Run the previous cell first."</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">datasets_df</span><span class="p">[</span><span class="s1">'prefix'</span><span class="p">]</span> <span class="o">=</span> <span class="n">datasets_df</span><span class="p">[</span><span class="s1">'datasetID'</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'_'</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">'_'</span><span class="p">)</span>
+    <span class="n">prefix_counts</span> <span class="o">=</span> <span class="n">datasets_df</span><span class="p">[</span><span class="s1">'prefix'</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+    <span class="n">prefix_counts</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">'barh'</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'steelblue'</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"Number of datasets"</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Dataset count by source prefix (top 15)"</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Top 15 source prefixes:"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">prefix_counts</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e3f4a5b6">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Step-4-%E2%80%94-Identify-and-document-gaps">Step 4 — Identify and document gaps<a class="anchor-link" href="#Step-4-%E2%80%94-Identify-and-document-gaps">¶</a></h3><p>Based on your exploration in Steps 1–3, document your findings using the structure below. This can serve as the starting point for a research proposal or a data gap report.</p>
+<p><strong>Gap analysis template</strong> (fill in your findings):</p>
 <table>
 <thead>
 <tr>
-<th>Use case</th>
-<th>Recommended tool</th>
+<th>Dimension</th>
+<th>Well-covered areas</th>
+<th>Data gaps identified</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>I want to <strong>search for a specific dataset</strong> by name or keyword</td>
-<td>Data Selection</td>
+<td>Earth System</td>
+<td>e.g., Ocean</td>
+<td>e.g., Permafrost</td>
 </tr>
 <tr>
-<td>I want to <strong>see what data is available</strong> in a geographic area</td>
-<td>Data Viewer</td>
+<td>RI</td>
+<td>e.g., RV POLARSTERN</td>
+<td>e.g., Mario Zucchelli Station</td>
 </tr>
 <tr>
-<td>I want to <strong>compare spatial coverage</strong> of multiple datasets</td>
-<td>Data Viewer</td>
-</tr>
-<tr>
-<td>I need the <strong>DOI or metadata</strong> of a specific dataset</td>
-<td>Data Selection &amp; Data Viewer</td>
+<td>Region</td>
+<td>e.g., Antarctic</td>
+<td>e.g., Arctic</td>
 </tr>
 </tbody>
 </table>
@@ -8034,197 +8434,143 @@ the <a href="https://s4polarin.eu/data-coverage/data-viewer/">Data Viewer</a> is
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6ed86c90">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f4a5b6c7">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <hr/>
-<h2 id="6.-POLARIN-PROMPT:-AI-assisted-data-discovery">6. POLARIN PROMPT: AI-assisted data discovery<a class="anchor-link" href="#6.-POLARIN-PROMPT:-AI-assisted-data-discovery">¶</a></h2><p><strong>Explanation</strong>:
-the <a href="https://bo.isp.cnr.it/llm-dashboard/">POLARIN PROMPT</a> is an <strong>AI-powered interface</strong> (Large Language Model dashboard) that lets you query and explore POLARIN data using natural language — for example:</p>
-<ul>
-<li><em>"What temperature datasets are available for the Svalbard region?"</em></li>
-<li><em>"Show me datasets with salinity measurements from Arctic research stations."</em></li>
-<li><em>"Which datasets cover the period 2018–2022 in the Southern Ocean?"</em></li>
-</ul>
-<p><strong>How to use it</strong>:</p>
+<h1 id="Use-Case-3:-Exploring-Arctic-ocean-data-for-policy-purposes">Use Case 3: Exploring Arctic ocean data for policy purposes<a class="anchor-link" href="#Use-Case-3:-Exploring-Arctic-ocean-data-for-policy-purposes">¶</a></h1><p><strong>Persona</strong>: Policy analyst or decision maker — an user who needs clear, actionable insights from polar data without programming.</p>
+<p><strong>Goal</strong>: Get an overview of what ocean observation data is available for the Arctic, explore it visually on the map, and extract plots and underlying data for use in reports or briefings.</p>
+<p><strong>Workflow overview</strong>:</p>
 <ol>
-<li>Go to <a href="https://bo.isp.cnr.it/llm-dashboard/">https://bo.isp.cnr.it/llm-dashboard/</a></li>
-<li>Type your question or data request in natural language in the chat interface.</li>
-<li>The AI will interpret your query and return relevant dataset suggestions, metadata summaries, or direct links to data.</li>
-<li>Use the results to identify datasets of interest, then access them via the Data Selection or POLARIN ERDDAP.</li>
+<li>Filter the Data Selection by Location and Earth System to find relevant datasets.</li>
+<li>Browse the results and select datasets of interest.</li>
+<li>Open the Data Viewer and distinguish data layers from metadata-only entries.</li>
+<li>Click on data layers (green markers) to explore interactive plots.</li>
 </ol>
-<p><strong>When is POLARIN PROMPT most useful?</strong></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a5b6c7d8">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Step-1-%E2%80%94-Filter-the-Data-Selection-by-Location-and-Earth-System">Step 1 — Filter the Data Selection by Location and Earth System<a class="anchor-link" href="#Step-1-%E2%80%94-Filter-the-Data-Selection-by-Location-and-Earth-System">¶</a></h3><ol>
+<li>Go to the <a href="https://s4polarin.eu/data-catalog/">POLARIN Data Selection</a>.</li>
+<li>Use the <strong>Location</strong> filter and select <strong>Arctic</strong>.</li>
+<li>Use the <strong>Earth System</strong> filter and select <strong>Ocean</strong> (or another sphere relevant to your topic, e.g., <em>Sea Ice</em>, <em>Atmosphere</em>).</li>
+<li>Optionally, filter by <strong>RI</strong> to focus on a specific research infrastructure, or by <strong>RI Type</strong> to narrow down to a particular type of facility (e.g., research station, vessel).</li>
+</ol>
+<p>You will see a list of datasets matching your filters. Each entry shows:</p>
+<ul>
+<li>Dataset title and description</li>
+<li>Distributing RI</li>
+</ul>
+<p>Moreover,  each dataset has a colored markers in the entry. There are two types of markers — and the distinction matters:</p>
 <table>
 <thead>
 <tr>
-<th>Scenario</th>
-<th>POLARIN PROMPT</th>
+<th>Marker color</th>
+<th>What it means</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>I'm not sure what data exists for my topic</td>
-<td>✅ Great starting point</td>
-</tr>
-<tr>
-<td>I want to download data programmatically</td>
-<td>🔸 Can suggest datasets</td>
-</tr>
-<tr>
-<td>I want to explore data interactively in natural language</td>
-<td>✅ Ideal</td>
-</tr>
-<tr>
-<td>I need precise filtering by variable, time, location</td>
-<td>🔸 May need follow-up</td>
+<td>🟢 <strong>Green</strong></td>
+<td>Data layer/Layers with data — the dataset contains plottable data. Their values can be displayed and plotted in the <a href="https://s4polarin.eu/data-coverage/data-viewer/">Data Viewer</a></td>
 </tr>
 </tbody>
 </table>
+<p>| 🔵 <strong>Blue</strong> | Metadata only — the dataset has a metadata record in the catalogue, but no plottable data is directly accessible through the Viewer.</p>
 <blockquote>
-<p>⚠️ <strong>Note</strong>: As with any AI tool, always verify the dataset information returned by POLARIN PROMPT against the official metadata records in the Data Selection before using the data in a publication.</p>
+<p>💡 At this stage you may not know exactly what variables each dataset contains — that is normal. The Data Viewer (next step) will help you understand what data is actually plottable and what is available only as metadata.</p>
 </blockquote>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b7116d4b">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b6c7d8e9">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<hr/>
-<h2 id="7.-Reanalysis-&amp;-Plots:-visual-dashboards-for-polar-data">7. Reanalysis &amp; Plots: visual dashboards for polar data<a class="anchor-link" href="#7.-Reanalysis-&amp;-Plots:-visual-dashboards-for-polar-data">¶</a></h2><p><strong>Explanation</strong>:
-the <a href="https://bo.isp.cnr.it/dashboard_polarin/">Reanalysis &amp; Plots</a> dashboard provides <strong>pre-built interactive visualizations</strong> of polar reanalysis data and observational products. This is a no-code tool — ideal for researchers who want to quickly explore atmospheric or oceanographic trends without writing any code.</p>
-<p><strong>What you can do with it</strong>:</p>
+<h3 id="Step-2-%E2%80%94-Open-Selected-Datasets-in-the-Data-Viewer">Step 2 — Open Selected Datasets in the Data Viewer<a class="anchor-link" href="#Step-2-%E2%80%94-Open-Selected-Datasets-in-the-Data-Viewer">¶</a></h3><p>To see the same datasets on the <a href="https://s4polarin.eu/data-coverage/data-viewer/">Data Viewer</a>, you can apply the same filters as the Data Selection.</p>
+<p>Focus your attention on the 🟢 <strong>green markers</strong> — these are the stations where you can actually explore the data interactively.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c7d8e9f0">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Step-3-%E2%80%94-Explore-the-Data-Interactively">Step 3 — Explore the Data Interactively<a class="anchor-link" href="#Step-3-%E2%80%94-Explore-the-Data-Interactively">¶</a></h3><p>Click on any 🟢 <strong>green marker</strong> on the map. A popup will appear showing:</p>
 <ul>
-<li>Visualize reanalysis fields (e.g., temperature, wind, sea ice) over polar regions.</li>
-<li>Compare different time periods or variables through interactive plots.</li>
-<li>Export figures for use in presentations or publications.</li>
+<li>The dataset name and the coordinates.</li>
+<li>Relevant links associated with the dataset.</li>
+<li>A link to a <strong>dedicated plot page</strong> — click it to open an interactive time series chart for that station.</li>
 </ul>
-<p><strong>How to use it</strong>:</p>
-<ol>
-<li>Go to <a href="https://bo.isp.cnr.it/dashboard_polarin/">https://bo.isp.cnr.it/dashboard_polarin/</a></li>
-<li>Select the variable and geographic region of interest from the dashboard controls.</li>
-<li>Adjust the time period and other parameters as needed.</li>
-<li>Explore the interactive plot — hover for values, zoom, or pan.</li>
-<li>Use the export/download button to save the figure.</li>
-</ol>
-<blockquote>
-<p>💡 This tool is particularly useful for <strong>quick overviews and context-setting</strong> — e.g., to understand the climatological background before diving into station-level data via ERDDAP.</p>
-</blockquote>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=97af5448">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<hr/>
-<h2 id="8.-The-POLARIN-Data-Cookbook">8. The POLARIN Data Cookbook<a class="anchor-link" href="#8.-The-POLARIN-Data-Cookbook">¶</a></h2><p><strong>Explanation</strong>:
-the <a href="https://s4polarin.eu/data-coverage/data_cookbook/intro.html">POLARIN Data Cookbook</a> is an interactive <strong>Jupyter Book</strong> — a collection of annotated notebooks that demonstrate how to collect, access, and process polar ocean observations using POLARIN data and tools.</p>
-<p>It is aimed at researchers who want ready-to-run, documented examples they can adapt for their own analyses.</p>
-<p><strong>Current chapters</strong>:</p>
-<table>
-<thead>
-<tr>
-<th>Chapter</th>
-<th>Topic</th>
-<th>Link</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>POLARIN's ERDDAP querying: tabledap</td>
-<td><a href="https://s4polarin.eu/data-coverage/data_cookbook/chapters/chapter1/polarin_erddap_querying_tabledap.html">Open</a></td>
-</tr>
-<tr>
-<td>2</td>
-<td>Assessing Ocean Circulation, Carbon Uptake, and Environmental Changes</td>
-<td><a href="https://s4polarin.eu/data-coverage/data_cookbook/chapters/chapter2/polarin_bottles.html">Open</a></td>
-</tr>
-<tr>
-<td>3</td>
-<td>POLARIN's ERDDAP datasets distribution in time and space</td>
-<td><a href="https://s4polarin.eu/data-coverage/data_cookbook/chapters/chapter3/polarin_data_catalogue.html">Open</a></td>
-</tr>
-</tbody>
-</table>
-<p><strong>How to run the Cookbook notebooks</strong>:</p>
-<p>Option A — <strong>Binder</strong> (no installation required):
-Each chapter has a Binder link at the top of the page. Click it to open and run the notebook directly in your browser.
-Example: <a href="https://mybinder.org/v2/gh/POLAR-RESEARCH-INFRASTRUCTURE-NETWORK/jupyter-notebooks/HEAD?urlpath=%2Fdoc%2Ftree%2Fnotebooks_binder%2Fpolarin_erddap_querying_tabledap.ipynb">Run Chapter 1 on Binder</a></p>
-<p>Option B — <strong>Download and run locally</strong>:</p>
-<ol>
-<li>Go to the <a href="https://github.com/POLAR-RESEARCH-INFRASTRUCTURE-NETWORK/jupyter-notebooks">POLARIN GitHub repository</a>.</li>
-<li>Clone or download the repository.</li>
-<li>Install the required dependencies (see the repository README).</li>
-<li>Open the notebooks in JupyterLab or Jupyter Notebook.</li>
-</ol>
-<blockquote>
-<p>📌 The Cookbook source files (<code>.ipynb</code>) are also directly downloadable from each chapter page — look for the <code>.ipynb</code> download button at the top right of any chapter.</p>
-</blockquote>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b8c9d0e1">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<hr/>
-<h2 id="9.-Additional-Resources-in-the-Data-Hub">9. Additional Resources in the Data Hub<a class="anchor-link" href="#9.-Additional-Resources-in-the-Data-Hub">¶</a></h2><p><strong>Explanation</strong>:
-Beyond the core data discovery tools, the POLARIN Data Hub provides several additional resources worth knowing about:</p>
+<p>In the interactive plot:</p>
 <ul>
-<li><p><strong><a href="https://zenodo.org/communities/eu-polarin/records">POLARIN Zenodo Community</a></strong>: A curated collection of datasets published by POLARIN partners on Zenodo. All datasets here are open access and have a DOI.</p>
-</li>
-<li><p><strong><a href="https://github.com/POLAR-RESEARCH-INFRASTRUCTURE-NETWORK">GitHub – POLARIN Community</a></strong>: The POLARIN GitHub organization hosts code, notebooks, and tools developed by the community — including the source notebooks for the Data Cookbook.</p>
-</li>
+<li>Display the last 30 days of a measurement.</li>
+<li>Hover over the line to read individual data values at specific dates.</li>
+<li>Observe the overall shape of the record — are there seasonal cycles? Long-term trends? Anomalous periods?</li>
 </ul>
+<p>Repeat for different green markers to compare stations across the Arctic.</p>
+<blockquote>
+<p>📊 <strong>For a broader regional picture</strong>: complement station-level exploration with the <a href="https://bo.isp.cnr.it/dashboard_polarin/">Reanalysis &amp; Plots dashboard</a>, which provides pre-built visualizations of reanalysis fields (e.g., sea surface temperature, sea ice extent) over the Arctic and Antarctic — no interaction with individual stations needed.</p>
+</blockquote>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c9d0e1f2">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e9f0a1b2">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <hr/>
-<h2 id="Summary">Summary<a class="anchor-link" href="#Summary">¶</a></h2><p>In this notebook, you have learned:</p>
-<p>✅ The POLARIN Data Hub (<a href="https://s4polarin.eu/">s4polarin.eu</a>) is a single entry point to polar research data from across the POLARIN network.</p>
-<p>✅ <strong>Virtual Access</strong> provides free, open, and publicly available data — no application needed.</p>
-<p>✅ When using POLARIN VA data, always cite the dataset DOI, acknowledge the RI, and include the POLARIN grant acknowledgement.</p>
-<p>✅ The <strong>Data Selection</strong> is the right tool to search for specific datasets by keyword, variable, or region.</p>
-<p>✅ The <strong>Data Viewer</strong> lets you visually explore data coverage on an interactive map.</p>
-<p>✅ <strong>POLARIN PROMPT</strong> (<a href="https://bo.isp.cnr.it/llm-dashboard/">bo.isp.cnr.it/llm-dashboard</a>) — AI-powered interface for exploring data through natural language queries.</p>
-<p>✅ <strong>Reanalysis &amp; Plots</strong> (<a href="https://bo.isp.cnr.it/dashboard_polarin/">bo.isp.cnr.it/dashboard_polarin</a>) — interactive no-code dashboard for visualizing polar reanalysis and observational data.</p>
-<p>✅ <strong>Data Cookbook</strong> (<a href="https://s4polarin.eu/data-coverage/data_cookbook/intro.html">s4polarin.eu/data-coverage/data_cookbook</a>) — a library of ready-to-run Jupyter notebooks with documented polar data analysis examples.</p>
+<h2 id="Summary">Summary<a class="anchor-link" href="#Summary">¶</a></h2><p>This notebook walked through three representative use cases for polar data discovery using the POLARIN Data Hub:</p>
+<p>✅ <strong>Use Case 1</strong>: An oceanographer used the Data Selection to identify ERDDAP-accessible ocean datasets, retrieved multi-depth temperature data via ERDDAP using Python, produced water column profiles and time series plots, and exported the data for further analysis.</p>
+<p>✅ <strong>Use Case 2</strong>: A PhD student explored data availability by Earth System and Location in the Data Selection, identified thematic and geographic gaps, and quantified dataset distribution using the ERDDAP programmatic interface.</p>
+<p>✅ <strong>Use Case 3</strong>: A policy analyst filtered the Data Selection by Location (Arctic) and Earth System (Ocean), opened datasets in the Data Viewer, focused on green markers (plottable data layers), and explored interactive station plots to extract insights for policy briefings.</p>
 <hr/>
-<h3 id="Next-steps">Next steps<a class="anchor-link" href="#Next-steps">¶</a></h3><ul>
-<li>Explore the <a href="https://zenodo.org/communities/eu-polarin/records">POLARIN Zenodo Community</a> to browse published datasets.</li>
-<li>Check the <a href="https://github.com/POLAR-RESEARCH-INFRASTRUCTURE-NETWORK">POLARIN GitHub</a> for community notebooks and code.</li>
+<h3 id="Key-takeaways">Key takeaways<a class="anchor-link" href="#Key-takeaways">¶</a></h3><ul>
+<li>The <a href="https://s4polarin.eu/data-catalog/">Data Selection</a> is your starting point for structured, filtered data discovery.</li>
+<li>The <a href="https://s4polarin.eu/data-coverage/data-viewer/">Data Viewer</a> lets you explore data spatially before downloading — focus on 🟢 green markers for plottable data.</li>
+<li><a href="https://erddap.s4polarin.eu/erddap/">ERDDAP</a> enables precise, reproducible, programmatic access for advanced users.</li>
+<li>All POLARIN data used in publications must be properly cited — include the dataset DOI and the POLARIN grant acknowledgement.</li>
+</ul>
+<h3 id="Further-reading">Further reading<a class="anchor-link" href="#Further-reading">¶</a></h3><ul>
+<li>📖 <a href="https://s4polarin.eu/data-coverage/data_cookbook/intro.html">POLARIN Data Cookbook</a> — for more worked examples of data analysis.</li>
+<li>🗃️ <a href="https://zenodo.org/communities/eu-polarin/records">POLARIN Zenodo Community</a> — for published, citable POLARIN datasets.</li>
+<li>🤖 <a href="https://bo.isp.cnr.it/llm-dashboard/">POLARIN PROMPT</a> — for AI-assisted data discovery.</li>
+<li>📊 <a href="https://bo.isp.cnr.it/dashboard_polarin/">Reanalysis &amp; Plots</a> — for pre-built dashboards.</li>
 </ul>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=98987247">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a7643bdd">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="License">License<a class="anchor-link" href="#License">¶</a></h4><p>This notebook is licensed under <a href="https://creativecommons.org/licenses/by/4.0/deed.en">CC BY 4.0</a>. You are free to use, adapt, and share it, provided you attribute POLARIN and release derivatives under the same license.</p>
+<h4 id="Find-additional-data-stewardship-training-resources-in-the-POLARIN-Training-Resources-Database!">Find additional data stewardship training resources in the POLARIN Training Resources Database!<a class="anchor-link" href="#Find-additional-data-stewardship-training-resources-in-the-POLARIN-Training-Resources-Database!">¶</a></h4><p>POLARIN has prepared a comprehensive list of training resources on data stewardship, covering the entire data lifetime cycle: from data collection, to transformation, curation, analysis, publication, and more. You can find the POLARIN Training Resources Database <a href="https://docs.google.com/spreadsheets/d/1ny4goRAzt8Aj-uqvES-k1lRfJwxhZ0Fb/edit?usp=sharing&amp;ouid=113232285459718566773&amp;rtpof=true&amp;sd=true">here</a>. Feel free to contribute to the database by adding your own resources, or by suggesting new resources to be added.</p>
+<blockquote>
+<p>NOTE: Be sure to navigate to the second sheet to view the data stewardship resources!</p>
+</blockquote>
+<h4 id="License">License<a class="anchor-link" href="#License">¶</a></h4><p>This notebook is licensed under <a href="https://creativecommons.org/licenses/by/4.0/deed.en">CC BY 4.0</a>. You are free to use, adapt, and share it, provided you attribute POLARIN.</p>
 <p><strong>Attribution</strong>:</p>
 <blockquote>
 <p>Developed as part of the POLARIN project (Grant Agreement No. 101130949).</p>

@@ -22,7 +22,7 @@
 
 **Date created: 27-05-2026**
 
-**Date last modified: 09-06-2026**
+**Date last modified: 13-07-2026**
 
 **License: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.en)** </div>
 
@@ -96,8 +96,6 @@ in the context of POLARIN, [Virtual Access](https://s4polarin.eu/virtual-access/
 VA is openly available to **all users without a selection process**. It enables researchers, policymakers, and stakeholders by providing evidence-based information for sustainable management of polar environments, particularly in the context of climate change and human activity impacts.
 
 POLARIN supports VA by connecting data, metadata, data services, and data products from multiple polar RI through the **POLARIN metadata catalogue**. This catalogue provides access to diverse (meta)data sources in a semantically consistent and interoperable manner, and serves them in a way that is compatible with various metadata standards and exchange protocols. The technical and operational work required to host, curate, maintain, and deliver these resources ensures that they remain discoverable, reliable, and usable throughout the project lifetime.
-
-> ⚠️ **By definition, the POLARIN metadata catalogue the only catalogue that stores POLARIN VA data.** If a dataset from a POLARIN RI is not exposed through the catalogue, it does not count as VA and therefore POLARIN cannot ensure the discoverability of these data through the Data Hub.
 
 All datasets and services provided through VA are integrated into the POLARIN metadata catalogue and exposed through the POLARIN Data Hub in line with **FAIR principles**. In practice, POLARIN VA enforces data integration at the **discovery level**: all VA datasets are Findable, Accessible, and Reusable through the catalogue. Full Interoperability (the "I" in FAIR) is not enforced at this stage, given the varying levels of data architecture maturity across the participating RIs. This means that while you can always find and access VA data through the Data Hub, the format and structure of the underlying data may vary between datasets.
 
@@ -266,7 +264,7 @@ POLARIN has prepared a comprehensive list of training resources on data stewards
 > NOTE: Be sure to navigate to the second sheet to view the data stewardship resources! 
 
 #### License
-This notebook is licensed under [AGPLv3](https://www.gnu.org/licenses/gpl-3.0.html). You are free to use, adapt, and share it, provided you attribute POLARIN and release derivatives under the same license.
+This notebook is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.en). You are free to use, adapt, and share it, provided you attribute POLARIN.
 
 **Attribution**:
 > Developed as part of the POLARIN project (Grant Agreement No. 101130949).

@@ -22,11 +22,11 @@
 
 **Date created: 27-05-2026**
 
-**Date last modified: 09-06-2026**
+**Date last modified: 26-06-2026**
 
 **License: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.en)** </div>
 
-The POLARIN Data Hub brings together polar research data from across a wide network of Arctic and Antarctic Research Infrastructures. But knowing that the data exists is only the first step — users also need to know *how* to find what they need, *how* to explore it, and *how* to get it into their analysis workflow. This notebook presents three representative use cases drawn from real POLARIN user personas, each showing a complete workflow from data discovery to download or analysis. By the end of this notebook, you will have seen how three different types of users — an oceanographer, a PhD student, and a policy analyst — can each use the POLARIN Data Hub to meet their specific data needs. 
+The POLARIN Data Hub brings together polar research data from across a wide network of Arctic and Antarctic Research Infrastructures. But knowing that the data exists is only the first step — users also need to know *how* to find what data they need, *how* to explore them, and *how* to get them into their analysis workflow. This notebook presents three representative use cases drawn from real POLARIN user personas, each showing a complete workflow from data discovery to download or analysis. By the end of this notebook, you will have seen how three different types of users — an oceanographer, a PhD student, and a policy analyst — can each use the POLARIN Data Hub to meet their specific data needs. 
 
 ---
 
@@ -492,18 +492,13 @@ This notebook walked through three representative use cases for polar data disco
 - 🤖 [POLARIN PROMPT](https://bo.isp.cnr.it/llm-dashboard/) — for AI-assisted data discovery.
 - 📊 [Reanalysis & Plots](https://bo.isp.cnr.it/dashboard_polarin/) — for pre-built dashboards.
 
-
-```python
-
-```
-
 #### Find additional data stewardship training resources in the POLARIN Training Resources Database!
 POLARIN has prepared a comprehensive list of training resources on data stewardship, covering the entire data lifetime cycle: from data collection, to transformation, curation, analysis, publication, and more. You can find the POLARIN Training Resources Database [here](https://docs.google.com/spreadsheets/d/1ny4goRAzt8Aj-uqvES-k1lRfJwxhZ0Fb/edit?usp=sharing&ouid=113232285459718566773&rtpof=true&sd=true). Feel free to contribute to the database by adding your own resources, or by suggesting new resources to be added.
 
 > NOTE: Be sure to navigate to the second sheet to view the data stewardship resources! 
 
 #### License
-This notebook is licensed under [AGPLv3](https://www.gnu.org/licenses/gpl-3.0.html). You are free to use, adapt, and share it, provided you attribute POLARIN and release derivatives under the same license.
+This notebook is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.en). You are free to use, adapt, and share it, provided you attribute POLARIN.
 
 **Attribution**:
 > Developed as part of the POLARIN project (Grant Agreement No. 101130949).

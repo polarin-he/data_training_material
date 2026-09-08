@@ -22,7 +22,7 @@
 
 **Date created: 18-06-2026**
 
-**Date last modified: 18-06-2026**
+**Date last modified: 25-06-2026**
 
 **License: [GNU GENERAL PUBLIC LICENSE Version 3 (AGPLv3)](https://www.gnu.org/licenses/gpl-3.0.html)** </div>
 
@@ -47,9 +47,9 @@ By the end of this notebook, you will be able to:
 FAIR stands for Findable, Accessible, Interoperable and Reusable. 
 The FAIR principles describe how (meta)data and other digital research objects should be organized and described so they can be more easily accessed, understood, exchanged, and reused by both humans and computational systems. 
 
-<div style="max-width: 1080px;">
+<div style="max-width: 95%;">
 
-![The FAIR guiding principles as described by The Turing Way project. Source: Scriberia, licensed CC-BY 4.0](../sources/images/FAIR_turing.png)
+![The FAIR guiding principles as described by The Turing Way project. Source: Scriberia, licensed CC-BY 4.0](sources/FAIR_turing.png)
 *The FAIR guiding principles as described by The Turing Way project. Source: Scriberia, licensed CC-BY 4.0* 
 
 </div>
@@ -64,7 +64,7 @@ Providing other researchers with access to your data and/or to rich metadata des
 *For data to be (re)used, your first need to be able to find them. Metadata and data should be easy to find for both humans and computers.*
 | Principle | What to do |
 |-----------|------------|
-|**F1 (Meta)data are assigned a globally unique and persistent identifier** | <u>Bad example</u>: the dataset only exist as mydataset.xksx on your laptop. <br><u>What to do</u>: Upload your dataset to data repository that will assign it a persistent identifier such as a DOI (Digital Object Identifier).|
+|**F1 (Meta)data are assigned a globally unique and persistent identifier (PID)** | <u>Bad example</u>: the dataset only exist as mydataset.xlsx on your laptop. <br><u>What to do</u>: Upload your dataset to data repository that will assign it a persistent identifier (PID) such as a DOI (Digital Object Identifier).|
 |**F2 Data are described with rich metadata (defined by R1 below)**|<u>What to do</u>: along your data, provide information such as: measurement location, sampling dates, instrument used, units, contact person, keywords, data processing description. Someone unfamiliar with your project should understand your dataset without having to contact you!|
 |**F3 Metadata clearly and explicitly include the identifier of the data they describe**| The metadata and the dataset they describe are usually separate files. The association between a metadata file and the dataset should be made explicit by mentioning a dataset’s globally unique and persistent identifier in the metadata.<br><u>What to do</u>: make sure you mention the dataset DOI in the metadata.|
 |**F4 (Meta)data are registered or indexed in a searchable resource**| Identifiers and rich metadata descriptions alone will not ensure ‘findability’ on the internet.<br><u>Bad example</u> the data are stored only on a lab website with no indexing.<br><u>What to do</u>: deposit your data in a data repository where researchers can easily find it through a search interface.|
@@ -80,11 +80,11 @@ Providing other researchers with access to your data and/or to rich metadata des
 |**A2. Metadata are accessible, even when the data are no longer available**|If the dataset is withdrawn, it is important that researchers can still find the metadata to know that the dataset existed. The data repository therefore should still show the dataset title, authors, abstract, DOI, and a reason for removal. |
 
 #### Interoperable
-*Data should be compatible with other datasets and tools. This requires using standardized vocabularies and formats, facilitating integration with other data sources.*
+*Data should be compatible with other datasets and tools. This requires using standardized vocabularies (e.g., https://gcmd.earthdata.nasa.gov/KeywordViewer/ or https://cfconventions.org/Data/cf-standard-names/current/build/cf-standard-name-table.html) and formats, facilitating integration with other data sources.*
 | Principle | What to do |
 |-----------|------------|
 |**I1 (Meta)data use a formal, accessible, shared, and broadly applicable language for knowledge representation.** | <u>Bad example</u>: data are stored in a proprietary format (example: Microsoft Excel file) or a format that computers cannot easily read (example: scanned PDF table). <br><u>What to do</u>: use a format such as CSV, NetCDF, JSON, Darwin Core Archive.|
-|**I2 (Meta)data use vocabularies that follow FAIR principles**| Use a recognized vocabulary following community standards. For example, use “air_temperature” instead of “Temp”. Different datasets can then be combined more easily.|
+|**I2 (Meta)data use vocabularies that follow FAIR principles**| Use a recognized vocabulary following community standards (e.g., https://gcmd.earthdata.nasa.gov/KeywordViewer/ or https://cfconventions.org/Data/cf-standard-names/current/build/cf-standard-name-table.html). For example, use “air_temperature” instead of “Temp”. Different datasets can then be combined more easily.|
 |**I3 (Meta)data include qualified references to other (meta)data**| If other observations were useful for your measurements, mention them explicitly in your metadata. For example: “This dataset was generated using meteorological observations from Dataset DOI: xxx”.|
 
 
@@ -98,50 +98,47 @@ Providing other researchers with access to your data and/or to rich metadata des
 |**R1.3 (Meta)data meet domain-relevant community standards**|It is easier to reuse datasets if the data is organised in a standardised way, using well-established file formats, common vocabulary or a common template. If community standards or best practices for data archiving and sharing exist, they should be followed so that researchers in the field can immediately understand the data. Useful resources you might want to check out: https://schema.datacite.org/ or https://cfconventions.org/.|
 
 
-### FAIR Self-Assessment Checklist
+### FAIR Self-Assessment (Meta)data Checklist
 Before publishing your data, ask yourself:
 
-| Principle | Question |
-|-----------|----------|
-| F1 | Does my dataset have a DOI or PID? |
-| F2 | Have I described it well enough for a stranger to understand it? |
-| F3 | Does the metadata explicitly point to the dataset? |
-| F4 | Can someone find it through a repository search? |
-| A1 | Can it be retrieved through a standard web protocol? |
-| A1.1 | Is the protocol open and widely supported? |
-| A1.2 | If access is restricted, is there a clear authentication process? |
-| A2 | Will metadata remain available even if data disappear? |
-| I1 | Are the files machine-readable and non-proprietary? |
-| I2 | Am I using community vocabularies? |
-| I3 | Have I linked related datasets properly? |
-| R1 | Is there enough context for reuse? |
-| R1.1 | Is there a clear license? |
-| R1.2 | Is the provenance documented? |
-| R1.3 | Does the dataset follow community standards? |
+| **Principle** | **Question**                                                      |
+|---------------|-------------------------------------------------------------------|
+| **F1**        | Does my dataset have a Digital Object Identifier (DOI) or Persistent Identifier (PID)?                                |
+| **F2**        | Have I described it well enough for a stranger to understand it?  |
+| **F3**        | Does the metadata explicitly point to the dataset?                |
+| **F4**        | Can someone find it through a repository search?                  |
+| **A1**        | Can it be retrieved through a standard web protocol?              |
+| **A1.1**      | Is the protocol open and widely supported?                        |
+| **A1.2**      | If access is restricted, is there a clear authentication process? |
+| **A2**        | Will metadata remain available even if data disappear?            |
+| **I1**        | Are the files machine-readable and non-proprietary?               |
+| **I2**        | Am I using community vocabularies?                                |
+| **I3**        | Have I linked related datasets properly?                          |
+| **R1**        | Is there enough context for reuse?                                |
+| **R1.1**      | Is there a clear license?                                         |
+| **R1.2**      | Is the provenance documented?                                     |
+| **R1.3**      | Does the dataset follow community standards?                      |
 
 ### The CARE principles as an extension to the FAIR principles
 Does your research involve handling, managing and/or analysing Indigenous data? If so, you should consider applying the CARE Principles for Indigenous Data Governance. Whereas the FAIR data principles provide technical guidance on data documentation and sharing, the CARE data principles provide the neccessary ethical and legal boundary conditions. Please read up on the CARE Principles in the next notebook [here](./01_CARE.ipynb). 
 
 ---
 
-#### References
-- Wilkinson, M. D., et al. (2016). The FAIR Guiding Principles for scientific data management and stewardship. Scientific Data, 3, 160018.
-- https://www.openaire.eu/how-to-make-your-data-fair 
-- https://www.go-fair.org/fair-principles/
-- https://sisu.ut.ee/andmehaldus/fair-data/?lang=en 
-- https://www.eresearch.uni-goettingen.de/de/knowledge-base/explain-data/fair-principles/
-- https://www.gofair.us/fair-principles
-- https://openneuroscience.org/Governance/FAIR-Principles
-- https://pmc.ncbi.nlm.nih.gov/articles/PMC9562067/
-- https://training.galaxyproject.org/training-material/topics/fair/tutorials/fair-intro/tutorial.html
-- https://pmc.ncbi.nlm.nih.gov/articles/PMC11177558/
-- https://www.nnlm.gov/resources/data/data-glossary/fair-principles
-- https://www.ouvrirlascience.fr/wp-content/uploads/2018/11/FAIR-Principles.pdf
-- https://faircookbook.elixir-europe.org/content/recipes/introduction/brief-FAIR-principles.html
-- https://pmc.ncbi.nlm.nih.gov/articles/PMC11177558/
-- https://www.gofair.foundation/a1
-- https://data-guidelines.scilifelab.se/topics/fair-principles/
-- https://www.eresearch.uni-goettingen.de/knowledge-base/explain-data/fair-principles/
+#### More information:
+Wilkinson, M., Dumontier, M., Aalbersberg, I. et al. The FAIR Guiding Principles for scientific data management and stewardship. Sci Data 3, 160018 (2016). https://doi.org/10.1038/sdata.2016.18
+
+#### References used in this notebook
+- Explain! FAIR Principles. eResearch Alliance https://www.eresearch.uni-goettingen.de/knowledge-base/explain-data/fair-principles/.
+- FAIR Data – Research Data Management and Publishing. https://sisu.ut.ee/andmehaldus/fair-data/?lang=en.
+- FAIR Guiding Principle. GO FAIR Foundation https://www.gofair.foundation/a1.
+- Kamieniecka, K. & Poterlowicz, K. FAIR in a nutshell. Galaxy Training Network https://training.galaxyproject.org/training-material/topics/fair/tutorials/fair-intro/tutorial.html.
+- FAIR Principles. Open Neuroscience https://openneuroscience.org/Governance/FAIR-Principles.
+- FAIR Principles. GO FAIR US https://www.gofair.us/fair-principles.
+- FAIR Principles. GO FAIR https://www.go-fair.org/fair-principles/.
+- FAIR principles | SciLifeLab Research Data Management Guidelines. https://data-guidelines.scilifelab.se/topics/fair-principles/.
+- How to make your data FAIR. OpenAIRE https://www.openaire.eu/how-to-make-your-data-fair.
+- Barker M, Chue Hong NP, Katz DS, Lamprecht AL, Martinez-Ortiz C, Psomopoulos F, Harrow J, Castro LJ, Gruenpeter M, Martinez PA, Honeyman T. Introducing the FAIR Principles for research software. Sci Data. 2022 Oct 14;9(1):622. doi: 10.1038/s41597-022-01710-x. PMID: 36241754; PMCID: PMC9562067.
+- What are the FAIR Principles? https://fairplus.github.io/the-fair-cookbook/content/recipes/introduction/brief-FAIR-principles.html.
 
 #### Find additional data stewardship training resources in the POLARIN Training Resources Database!
 POLARIN has prepared a comprehensive list of training resources on data stewardship, covering the entire data lifetime cycle: from data collection, to transformation, curation, analysis, publication, and more. You can find the POLARIN Training Resources Database [here](https://docs.google.com/spreadsheets/d/1ny4goRAzt8Aj-uqvES-k1lRfJwxhZ0Fb/edit?usp=sharing&ouid=113232285459718566773&rtpof=true&sd=true). Feel free to contribute to the database by adding your own resources, or by suggesting new resources to be added.

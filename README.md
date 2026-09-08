@@ -2,10 +2,10 @@
 This repository contains a concise, practical data stewardship crash course you can use immediately, and can be found in the `data_crash_course` directory. It is provided as Jupyter Notebooks with Markdown/HTML/PDF exports to enhance accessibility and supporting images so you can read, run and adapt the material locally. Additional accessibility pathways are identified as high priority for future development.
 
 ## What you'll get
-- Interactive lessons in `data_crash_course/` (open in JupyterHub/your Integrated Development Environment (IDE) of choice)
+- Interactive lessons in the parent folder (open in JupyterHub/your Integrated Development Environment (IDE) of choice)
 - Markdown/HTML/PDF exports of the same notebooks if you prefer to access the material in different format. Please note: this removes any interactivity of the content.
 - A template `polarin_template.ipynb` that you can use to create your own notebook and contribute to this list of training materials!
-- Supporting images and diagrams in `sources/images/`
+- Supporting images and diagrams in `sources`
 
 ## Quick lesson list
 - `01_FAIR.ipynb` — FAIR principles and practical steps for your data
@@ -22,6 +22,12 @@ POLARIN aims to create a more inclusive learning environment recognising that ef
  
 Other stakeholders may find selected materials useful for understanding the principles and value of open and FAIR data, but may prefer to access supporting resources through more accessible formats such as guides, presentations, summaries, or training modules. For this reason, a selection of our products is also available in PDF, HTML, and Markdown formats.
 
+## The POLARIN Training Resources Database
+The training content described in this repository is mostly created by gathering existing, external training content on data stewardship. We have collected all of these training materials and tagged according to the chapter they are used in. You can find all these existing, external training materials [here](https://docs.google.com/spreadsheets/d/1jOIR7_TRfE7lSWVhZXE4R-0jSLxTL4sT7mWvTqiO3nY/edit?usp=sharing).
+
+## The POLARIN Training Hub hosted by APECS
+Besides this data stewardship crash course, POLARIN has also developed a hollistic training hub for anything POLARIN hosted by APECS. This training hub contains a wide range of training materials on polar research, including data stewardship, but also other topics such as fieldwork, science communication, and career development. You can find the POLARIN Training Hub [here](https://apecs.community/compass/polarin-training/).
+
 ## The POLARIN project 
 POLARIN is a EU-HORIZON2020 project that compiles an international network of polar research infrastructures and their services, aiming at addressing the scientific challenges of the polar regions. The network includes a wide array of complementary and interdisciplinary top level research infrastructures: Arctic and Antarctic research stations, research vessels and icebreakers operating at both poles, observatories, data infrastructures and ice and sediment core repositories.
 
@@ -36,9 +42,6 @@ POLARIN has the following six specific objectives, coherent with the work packag
 - Advertise RI services and engage RI users. 
 
 Want to learn more about the POLARIN project? Go to the [project website](https://eu-polarin.eu/).
-
-## The POLARIN Training Resources Database
-The training content described in this repository is mostly created by gathering existing, external training content on data stewardship. We have collected all of these training materials and tagged according to the chapter they are used in. You can find all these existing, external training materials [here](https://docs.google.com/spreadsheets/d/1jOIR7_TRfE7lSWVhZXE4R-0jSLxTL4sT7mWvTqiO3nY/edit?usp=sharing).
 
 ## Contributing to this training material repository
 If u want to contribute to the contents of this repository, open an issue here on GitHub, make changes to a new branch and make a pull request, or send an email to the content curator Daan Kivits: daan.kivits@sios-svalbard.org.

@@ -7802,7 +7802,8 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="How-to-publish-your-POLARIN-data?">How to publish your POLARIN data?<a class="anchor-link" href="#How-to-publish-your-POLARIN-data?">¶</a></h1><div style="
+<h1 id="How-to-publish-your-POLARIN-TA-data?">How to publish your POLARIN TA data?<a class="anchor-link" href="#How-to-publish-your-POLARIN-TA-data?">¶</a></h1><style>
+.info-box {
     background-color: rgba(128, 128, 128, 0.1);
     border-left: 4px solid rgba(128, 128, 128, 0.25);
     padding: 10px;
@@ -7811,15 +7812,16 @@ a.anchor-link {
     font-family: monospace;
     font-size: 0.9em;
     color: #333;
-">
-</div>
+}
+</style>
+<div class="info-box">
 <p><strong>Audience level: Beginner</strong></p>
 <p><strong>Estimated reading time: 15 minutes</strong></p>
 <p><strong>Contributor: Daan Kivits (SIOS-KC)</strong></p>
 <p><strong>Date created: 19-06-2026</strong></p>
-<p><strong>Date last modified: 22-06-2026</strong></p>
-<p><strong>License: <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GENERAL PUBLIC LICENSE Version 3 (AGPLv3)</a></strong> </p>
-<p>Give the introduction here</p>
+<p><strong>Date last modified: 26-06-2026</strong></p>
+<p><strong>License: <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GENERAL PUBLIC LICENSE Version 3 (AGPLv3)</a></strong> </p></div>
+<p>This notebook explains where and how to publish your POLARIN TA data in trusted repositories while following <strong>Open Science principles</strong>. It provides strategies on <strong>where to publish</strong> your TA data, describes the concept of <strong>data embargos</strong> and explains the importance of <strong>clear licensing</strong> for maximum reuse and impact.</p>
 </div>
 </div>
 </div>
@@ -7830,14 +7832,20 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><em>How and where to publish your data to integrate it into POLARIN?</em>
-- Open Science requirements
-- Data licensing
-- Recommendations on which data centers to upload data to
-- Always discuss publication of data with data centers themselves!
-- Links to external training materials on these topics</p>
-<h4 id="Learning-Objectives">Learning Objectives<a class="anchor-link" href="#Learning-Objectives">¶</a></h4><p>By the end of this notebook, you will:</p>
-<h4 id="Prerequisites">Prerequisites<a class="anchor-link" href="#Prerequisites">¶</a></h4><hr/>
+<hr/>
+<h3 id="Learning-Objectives">Learning Objectives<a class="anchor-link" href="#Learning-Objectives">¶</a></h3><p>By the end of this notebook, you will:</p>
+<ul>
+<li>Understand the (requirements posed by) <strong>Open Science principles</strong> adopted by Horizon Europe (and therefore also POLARIN)</li>
+<li>Understand <strong>where to publish your POLARIN TA</strong> data in trusted repositories.</li>
+<li>Learn how to <strong>attach a clear data license</strong> to enable reuse.</li>
+<li>Know how to <strong>request an embargo period</strong> if your TA data needs temporary privacy.</li>
+</ul>
+<h4 id="Prerequisites">Prerequisites<a class="anchor-link" href="#Prerequisites">¶</a></h4><ul>
+<li>Completion of <strong><a href="./03_Structuring_Data.ipynb">Notebook 3: Structuring Data</a></strong></li>
+<li>(Optional but recommended) Access to a <strong>dataset</strong> you want to publish</li>
+<li>(Optional but recommended) Completion of <strong><a href="./01_FAIR.ipynb">Notebook 1: Introduction to FAIR Principles</a></strong> and <strong><a href="./02_CARE.ipynb">Notebook 2: FAIR is not enough: CARE as an extension to FAIR</a></strong>.</li>
+</ul>
+<hr/>
 </div>
 </div>
 </div>
@@ -7848,60 +7856,132 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="How-and-Where-to-Publish-Your-Data">How and Where to Publish Your Data<a class="anchor-link" href="#How-and-Where-to-Publish-Your-Data">¶</a></h4><p>To integrate your data into <strong>POLARIN</strong>, follow these steps:</p>
-<h2 id="Open-Science-principles">Open Science principles<a class="anchor-link" href="#Open-Science-principles">¶</a></h2><ul>
-<li>Ensure your data is <strong>FAIR (Findable, Accessible, Interoperable, Reusable)</strong>.</li>
-<li>Provide <strong>rich metadata</strong> (e.g., title, abstract, keywords, temporal/spatial coverage).</li>
-<li>Assign a <strong>persistent identifier (PID)</strong> like a DOI.</li>
-</ul>
-<h2 id="Data-Licensing">Data Licensing<a class="anchor-link" href="#Data-Licensing">¶</a></h2><ul>
-<li>Choose an <strong>open license</strong> (e.g., CC-BY 4.0) to maximize reusability.</li>
-<li>Clearly state the license in your metadata.</li>
-</ul>
-<h2 id="What-data-repository-should-I-publish-my-data-to?">What data repository should I publish my data to?<a class="anchor-link" href="#What-data-repository-should-I-publish-my-data-to?">¶</a></h2><p>Publish your data in a <strong>trusted repository</strong>. Prioritize data centers <strong>actively integrated into POLARIN</strong>:</p>
+<h2 id="%F0%9F%94%8D-Where-and-how-to-publish-your-POLARIN-TA-data?">🔍 Where and how to publish your POLARIN TA data?<a class="anchor-link" href="#%F0%9F%94%8D-Where-and-how-to-publish-your-POLARIN-TA-data?">¶</a></h2><p>Before publishing your POLARIN TA data, ensure that:</p>
 <ul>
-<li><strong>Biodiversity/Ecological Data (Arctic)</strong>:<ul>
-<li><a href="https://abds.is/">ABDS (Arctic Biodiversity Data Service)</a> (CAFF)</li>
+<li>your research data is compliant with the <strong>FAIR (Findable, Accessible, Interoperable, Reusable)</strong> and <strong>CARE (Collective Benefit, Authority to Control, Responsibility, and Ethics)</strong> data principles, as much as possible. For guidance on the FAIR data principles, see <a href="../data_crash_course/01_FAIR.ipynb">this notebook</a> and for guidance on the CARE principles, see <a href="../data_crash_course/02_CARE.ipynb">this notebook</a>.</li>
+<li>your research data is accompanied with <strong>rich metadata</strong>, both in the discovery and use metadata, using metadata standards and controlled vocabularies where possible. For guidance on metadata, see <a href="../data_crash_course/03_Structuring_Data.ipynb">this notebook</a>.</li>
 </ul>
-</li>
-<li><strong>Geophysical Data (Arctic)</strong>:<ul>
-<li><a href="https://iadc.cnr.it">IADC (Italian Arctic Data Center)</a> (CNR)</li>
+<h2 id="%F0%9F%8C%8D-Open-Science-principles">🌍 Open Science principles<a class="anchor-link" href="#%F0%9F%8C%8D-Open-Science-principles">¶</a></h2><p>Open Science aims to make scientific research and its outputs  (publications, research data, methods, and tools) openly accessible, reusable, and collaborative to maximize societal and economic benefits (<a href="https://op.europa.eu/s/Aisq">Publications Office of the European Union, 2024</a>). Since POLARIN is a Horizon Europe project, it is committed to these <strong>Open Science</strong> principles.</p>
+<p>To comply with this rule, you are required to (within the limits of "as open as possible, as closed as necessary"):</p>
+<ul>
+<li>publish your publications and research data used in your publications according to the principle of <strong>"as open as possible, as closed as necessary"</strong>. In practice, this means that you should deposit your data in a <strong>trusted repository</strong> (e.g., CoreTrustSeal, Nestor Seal, ISO 16363, Zenodo, or disciplinary repositories) and make sure they are <strong>openly accessible to anyone</strong>. We have provided a list of recommended repositories for POLARIN data in <a href="#what-data-repository-should-i-publish-my-data-to">this section</a>.</li>
+<li>provide <strong>detailed descriptions</strong> of the research outputs needed to replicate and validate the conclusions of scientific publications or to validate or re-use research data (e.g., how to access, analyse, versioning, required dependencies, etc.).</li>
+<li>develop and continuously update a Data Management Plan (DMP) and ensure responsible management of research data in line with the FAIR (and CARE) principles in your research projects (see <a href="../data_crash_course/03_Structuring_Data.ipynb">the last notebook</a> for guidance on DMPs, and <a href="../data_crash_course/01_FAIR.ipynb">this</a> and <a href="../data_crash_course/02_CARE.ipynb">this</a> notebook for guidance on FAIR and CARE, respectively).</li>
+<li>comply with any additional requirements stated in the Grant Agreement of your project or work programme. POLARIN only enforces the two requirements above, but this may differ for other projects or work programmes. Always check the Grant Agreement of your project or work programme for any additional requirements.</li>
 </ul>
-</li>
-<li><strong>Geophysical Data (Antarctic)</strong>:<ul>
-<li><a href="https://iandc.pnra.aq">NADC (National Antarctic Data Center)</a> (CNR)</li>
+<p>On top of that, the EU recommends to adopt the following best practices:</p>
+<ul>
+<li>attach <strong>an open license</strong> (e.g., CC-BY 4.0, CC0, or equivalent) to your research data to enable and maximize reusability. See <a href="#data-licensing">this section</a> for more information on data licensing.</li>
+<li>share any research outputs <strong>early and open</strong> with the wider scientific community.</li>
+<li>provide <strong>open access to research outputs beyond publications and raw research data</strong>, such as auxiliary data, software, algorithms, code, protocols, models, workflows, or electronic notebooks. See <a href="#what-other-repository-should-i-use">this section</a> for guidance on where to publish such research outputs.</li>
+<li>involve <strong>citizens, civil society, and end-users</strong> in the collaborative collection, processing, and analysis of research data (i.e., citizen science).</li>
+<li>participate in <strong>open peer-review</strong> .</li>
 </ul>
-</li>
-<li><strong>Seismological Data (both polar regions)</strong>:<ul>
-<li><a href="http://geofon.gfz-potsdam.de/">POSEIDON (GFZ)</a></li>
-</ul>
-</li>
-<li><strong>Geophysical and biodiversity/ecological data (Svalbard)</strong>:<ul>
-<li><a href="https://sios-svalbard.org/metsis/search">SIOS SDMS (Svalbard Integrated Arctic Earth Observing System)</a></li>
-</ul>
-</li>
-<li><strong>Geophysical and biodiversity/ecological data (Arctic)</strong>:<ul>
-<li><a href="https://adc.met.no/">Arctic Data Center (MET Norway)</a></li>
-</ul>
-</li>
-</ul>
+<div style="
+    background-color: rgba(255, 165, 0, 0.2);
+    border-left: 4px solid rgba(255, 165, 0, 0.5);
+    width: 95%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+">
+NOTE: According to Horizon Europe (and therefore also POLARIN TA), data may be closed under certain conditions:
+
+<ul>
+<li>It conflicts with <strong>legitimate interests</strong> (e.g., commercial exploitation, patent applications). Horizon Europe rules state that <strong>intellectual property protection comes before open science obligations</strong> when protection and exploitation of project results would be adversely affected by making project results and data available in open access.</li>
+<li>It involves <strong>personal data</strong> (unless anonymized or explicit consent is given).</li>
+<li>It violates <strong>Union competitive interests, security rules, or other Grant Agreement obligations</strong>. </li></ul></div>
+
+<h2 id="%E2%8F%B3-Data-embargo-periods">⏳ Data embargo periods<a class="anchor-link" href="#%E2%8F%B3-Data-embargo-periods">¶</a></h2><p>If your POLARIN TA data is <strong>not yet ready for public release</strong>, you can request an <strong>embargo period</strong> from the data center where you will publish your data. This allows you to <strong>keep your data private for a certain period of time</strong> before it becomes publicly available. POLARIN allows an embargo on TA data anywhere between 6 up to 24 months, depending on the needs of the researcher. However, since not every data center handles embargo requests, always check with the data center for their specific embargo possibilities and policies.</p>
+<p>Under Horizon Europe law, all metadata of published data must be made openly available as soon as possible under a machine-readable format under a Creative Common Public Domain Dedication (<a href="https://creativecommons.org/public-domain/#cc0">CC0</a>) or equivalent, regardless of any embargo period on the data it describes. This means that even if your data is under embargo, the metadata must be publicly available.</p>
+<h2 id="%F0%9F%93%9C--Data-Licensing">📜 <a id="data-licensing"></a> Data Licensing<a class="anchor-link" href="#%F0%9F%93%9C--Data-Licensing">¶</a></h2><p>Attaching a data license in POLARIN is like adding a clear rulebook to your dataset. It tells others exactly how they can use, share, or build upon your work—removing guesswork and legal uncertainty. Without a license, your data is automatically locked down, which goes against Horizon Europe’s (POLARIN's) Open Science principles and open and collaborative spirit.</p>
+<p>A license enables the reuse of our data, i.e. the inclusion of a license makes your data legally interoperable. It also allows for integrating your data into data services, such as the POLARIN Data Hub. By choosing a <strong>open license</strong> (e.g., CC-BY 4.0, CC0, or equivalent) you encourage collaboration, maximize your data’s impact, and meet ethical and funding requirements, all while keeping things simple and transparent for everyone.</p>
+<h2 id="%F0%9F%93%81--What-repository-should-I-publish-my-TA-data-and-other-research-outputs-to?-%F0%9F%93%84">📁 <a id="what-data-repository-should-i-publish-my-data-to"></a> What repository should I publish my TA data and other research outputs to? 📄<a class="anchor-link" href="#%F0%9F%93%81--What-repository-should-I-publish-my-TA-data-and-other-research-outputs-to?-%F0%9F%93%84">¶</a></h2><p>Publish your data in a <strong>openly accessible, trusted repository</strong> that matches both the scientific domain and study area of your data. Preferably, choose a (meta)data repository that is a part of the POLARIN consortium, i.e. one of the following:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Type of (meta)data</strong></th>
+<th><strong>Study area</strong></th>
+<th><strong>(Meta)data repository</strong></th>
+<th><strong>FAIRness level of platform</strong></th>
+<th><strong>Notes</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Biodiversity and ecology</td>
+<td>Arctic</td>
+<td><a href="https://www.abds.is/index.php/partners/contribute-data">ABDS (Arctic Biodiversity Data Service)</a> (CAFF)</td>
+<td>High</td>
+<td>Suitable for aggregated biodiversity and ecology data products, has a simple (meta)data publication tool</td>
+</tr>
+<tr>
+<td>Geophysics</td>
+<td>Arctic</td>
+<td><a href="https://www.programmaricercaartico.it/en/node/21">IADC (Italian Arctic Data Center)</a> (CNR)</td>
+<td>High</td>
+<td>Suitable for any type of geophysical (meta)data from the Arctic region; unsupervised (meta)data publication not supported, contact <a href="mailto:protocollo.isp@pec.cnr.it">protocollo.isp@pec.cnr.it</a> to learn more about data publication</td>
+</tr>
+<tr>
+<td>Geophysics</td>
+<td>Antarctic</td>
+<td>NADC (National Antarctic Data Center) (CNR) <a href="https://antarcticdatacenter.cnr.it/erddap/index.html">data repository (ERDDAP)</a> or <a href="https://antarcticdatacenter.cnr.it/geonetwork/srv/eng/catalog.search#/home">metadata repository (GeoNetwork)</a></td>
+<td>High</td>
+<td>Suitable for any type of geophysical (meta)data from the Antarctic region; unsupervised (meta)data publication not supported, contact <a href="mailto:protocollo.isp@pec.cnr.it">protocollo.isp@pec.cnr.it</a> to learn more about data publication</td>
+</tr>
+<tr>
+<td>Seismology</td>
+<td>Arctic and Antarctic</td>
+<td><a href="https://geofon.gfz.de/contribute/">POlar SEismic Data Access (POSEDA)</a> (GEOFON/GFZ)</td>
+<td>High</td>
+<td>Suitable for seismological (meta)data from both polar regions; more information on publishing (meta)data given on the website</td>
+</tr>
+<tr>
+<td>Geophysics, biodiversity and ecology</td>
+<td>Svalbard</td>
+<td><a href="https://sios-svalbard.org/DataSubmission">SIOS Data Management System (SDMS)</a> (SIOS)</td>
+<td>High</td>
+<td>Suitable for any geophysical, biodiversity and ecology (meta)data from the greater Svalbard region; provides simple (meta)data publication form on the website</td>
+</tr>
+<tr>
+<td>Geophysics, biodiversity and ecology</td>
+<td>Arctic</td>
+<td><a href="https://adc.met.no/how-deposit-data">Arctic Data Center (ADC)</a> (MET Norway)</td>
+<td>High</td>
+<td>Suitable for any geophysical, biodiversity and ecology (meta)data from the Arctic region; need to request a (meta)data publication account</td>
+</tr>
+<tr>
+<td>Documentation, code and analysis workflows</td>
+<td>Any</td>
+<td><a href="https://github.com/">GitHub</a></td>
+<td>High</td>
+<td>Suitable for any research output other than data; promotes collaboration and reproducibility</td>
+</tr>
+<tr>
+<td>Any</td>
+<td>Arctic and Antarctic</td>
+<td><a href="https://zenodo.org/communities/eu-polarin/records?q=&amp;l=list&amp;p=1&amp;s=10&amp;sort=newest">POLARIN Zenodo Community</a></td>
+<td>Low</td>
+<td>Generalist repository, prioritize other repositories to allow your data to be more FAIR;</td>
+</tr>
+<tr>
+<td>Any</td>
+<td>Arctic and Antarctic</td>
+<td><a href="https://geonetwork.s4polarin.eu/geonetwork/srv/eng/catalog.search">POLARIN GeoNetwork</a></td>
+<td>Low</td>
+<td>Generalist repository, prioritize other repositories to allow your data to be more FAIR;</td>
+</tr>
+<tr>
+<td>Any</td>
+<td>Arctic and Antarctic</td>
+<td><a href="https://erddap.s4polarin.eu/erddap/index.html">POLARIN ERDDAP</a></td>
+<td>Low</td>
+<td>Generalist repository, prioritize other repositories to allow your data to be more FAIR;</td>
+</tr>
+</tbody>
+</table>
 <p><strong>⚠️ Important</strong>: Always <strong>discuss publication with the data center</strong> to ensure compliance with their requirements.</p>
-<pre><code></code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5dca8cc1">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Key-Takeaways">Key Takeaways<a class="anchor-link" href="#Key-Takeaways">¶</a></h3><ul>
-<li>[Takeaway 1, e.g., "Metadata standards like ACDD improve FAIRness of research data."]</li>
-<li>[Takeaway 2, e.g., "Metadata standards describe <em>which</em> attributes should be included in the metadata, whereas controlled vocabularies describe <em>how</em> these attributes should be described in the metadata"]</li>
-<li>[Takeaway 3]</li>
-</ul>
+<hr/>
 </div>
 </div>
 </div>
@@ -7912,21 +7992,11 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="References">References<a class="anchor-link" href="#References">¶</a></h4><ul>
-<li>[Link 1: Relevant tool/documentation]</li>
-<li>[Link 2: POLARIN Training Resources Database]</li>
-<li>[Link 3: External tutorial]</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=77c2228b">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="References">References<a class="anchor-link" href="#References">¶</a></h4><p>European Commission: European Innovation Council and SMEs Executive Agency, European IP helpdesk – Your guide to open science in Horizon Europe, Publications Office of the European Union, 2024, <a href="https://data.europa.eu/doi/10.2826/943044">https://data.europa.eu/doi/10.2826/943044</a></p>
+<h4 id="Find-additional-data-stewardship-training-resources-in-the-POLARIN-Training-Resources-Database!">Find additional data stewardship training resources in the POLARIN Training Resources Database!<a class="anchor-link" href="#Find-additional-data-stewardship-training-resources-in-the-POLARIN-Training-Resources-Database!">¶</a></h4><p>POLARIN has prepared a comprehensive list of training resources on data stewardship, covering the entire data lifetime cycle: from data collection, to transformation, curation, analysis, publication, and more. You can find the POLARIN Training Resources Database <a href="https://docs.google.com/spreadsheets/d/1ny4goRAzt8Aj-uqvES-k1lRfJwxhZ0Fb/edit?usp=sharing&amp;ouid=113232285459718566773&amp;rtpof=true&amp;sd=true">here</a>. Feel free to contribute to the database by adding your own resources, or by suggesting new resources to be added.</p>
+<blockquote>
+<p>NOTE: Be sure to navigate to the second sheet to view the data stewardship resources!</p>
+</blockquote>
 <h4 id="License">License<a class="anchor-link" href="#License">¶</a></h4><p>This notebook is licensed under <a href="https://www.gnu.org/licenses/gpl-3.0.html">AGPLv3</a>. You are free to use, adapt, and share it, provided you attribute POLARIN and release derivatives under the same license.</p>
 <p><strong>Attribution</strong>:</p>
 <blockquote>

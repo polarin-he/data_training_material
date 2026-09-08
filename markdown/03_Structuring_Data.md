@@ -22,11 +22,11 @@
 
 **Date created: 19-06-2026**
 
-**Date last modified: 22-06-2026**
+**Date last modified: 26-06-2026**
 
 **License: [GNU GENERAL PUBLIC LICENSE Version 3 (AGPLv3)](https://www.gnu.org/licenses/gpl-3.0.html)** </div>
 
-Structuring your data and metadata according to **POLARIN requirements** ensures that your datasets are **discoverable, interoperable, and reusable**. This notebook guides you through the essential steps to prepare your data for **Transnational Access (TA)** in POLARIN, focusing on **machine-readable formats**, **metadata standards**, and **best practices** for organizing your datasets.
+Structuring your TA data and metadata according to **POLARIN requirements** ensures that your TA datasets are **discoverable, interoperable, and reusable**. This notebook guides you through the essential steps to prepare your TA data for **Transnational Access (TA)** in POLARIN, focusing on **machine-readable formats**, **metadata standards**, and **best practices** for organizing your TA datasets.
 
 ---
 
@@ -49,9 +49,9 @@ By the end of this notebook, you will:
 
 In general, the more metadata you provide, the better, as it enhances the findability, accessibility, interoperability, and reusability of your data. However, it is important to prioritize the most critical metadata fields that are required by POLARIN and relevant to your specific dataset and use case. Read more about POLARIN-specific requirement in the [next section](#polarin_requirements). To make metadata useful for both humans and machines, it is important to use standardized metadata schemas and controlled vocabularies whenever possible, as described in more detail in [this section](#standardized_metadata). 
 
-<div style="max-width: 1080px;">
+<div style="max-width: 95%;">
 
-![Data versus metadata. Source: "Data vs Metadata #1" cartoon from Piotr at Dataedo.com, licensed CC-BY 4.0](../sources/images/Data_Metadata.png)
+![Data versus metadata. Source: "Data vs Metadata #1" cartoon from Piotr at Dataedo.com, licensed CC-BY 4.0](sources/Data_Metadata.png)
 
 *Data versus metadata. Source: "Data vs Metadata #1" cartoon from Piotr at Dataedo.com, licensed CC-BY 4.0* 
 
@@ -89,15 +89,11 @@ In the context of POLARIN, there are two levels of DMPs to consider:
 1. **General POLARIN DMP**: This is a high-level document that outlines the overall data management strategy for the entire POLARIN project. It includes general policies, standards, and guidelines that all POLARIN TAs are expected to follow. The general POLARIN DMP can be found [here](https://doi.org/10.5281/zenodo.18324669).
 2. **TA project DMP**: Each POLARIN TA project is required to develop its own DMP that is specific to the data management needs of that project. The TA project DMP should align with the general POLARIN DMP but also include more detailed information about the specific datasets being collected, how they will be structured and documented, and how they will be shared and preserved. The TA project DMP should be developed in consultation with POLARIN data management experts. For more details on the TA project DMP requirements, please refer to the general POLARIN DMP or contact [POLARIN TA management](mailto:polarin_ta@listserv.dfn.de).
 
+![The purpose of a Data Management Plan (DMP). Source: [FAIR Wizard](https://fair-wizard.com/blog/about-data-management-planning), licensed CC-BY 4.0](sources/DMP.png)
 
-<div style="max-width: 1080px;">
-
-![The purpose of a Data Management Plan (DMP). Source: [FAIR Wizard](https://fair-wizard.com/blog/about-data-management-planning), licensed CC-BY 4.0](../sources/images/DMP.png)
 *The purpose of a Data Management Plan (DMP). Source: [FAIR Wizard](https://fair-wizard.com/blog/about-data-management-planning), licensed CC-BY 4.0* 
 
-</div>
-
-## <a id='polarin_requirements'></a> POLARIN (meta)data requirements for TA projects
+## <a id='polarin_requirements'></a> Requirements for POLARIN (meta)data resulting from TA projects
 To limit the burden of data providers, POLARIN only requires the following metadata elements for data originating from TA projects:
 - **Acknowledgement** of POLARIN funding: "The data made available through this service were produced and provided with support from the European Union’s Horizon Europe programme under grant agreement No. 101130949 (POLARIN – Polar Research Infrastructure Network)." Any form of acknowledgement in free text is allowed here, as long as the acknowledgement contains the grant agreement number (101130949). 
 - **License**: CC-BY 4.0 (or a more permissive license). As a result of the Open Science policy that POLARIN adheres to and promotes, POLARIN requires the use of the CC-BY 4.0 (or a more permissive) license by default.  
@@ -105,15 +101,13 @@ To limit the burden of data providers, POLARIN only requires the following metad
 To check whether your dataset meets the POLARIN requirements, you can use the [POLARIN metadata checklist](#polarin_checklist) provided below. Besides these mandatory elements, POLARIN provides recommendations for other metadata fields that are not mandatory but are highly recommended to ensure the findability, accessibility, and reusability of the data. These recommendations are based on the FAIR data principles (read more in [this notebook](../data_crash_course/01_FAIR.ipynb)) and are also outlined in the [POLARIN Architecture Design Document](https://github.com/polarin-he/va_add.git) and POLARIN Data Stewardship Brochure (*to be released*). 
 
 ## <a id='polarin_checklist'></a> Metadata checklist for a typical POLARIN TA dataset
-This checklist includes both mandatory and recommended metadata fields, along with their purpose and examples. It is important to note that the checklist is not exhaustive and may be updated in the future as new requirements or recommendations arise. How the metadata is provided depends on the standardized metadata schema used (e.g., ACDD, CF conventions, ISO 19115, etc.), and mappings between metadata elements and most common metadata standards are provided in the [POLARIN Architecture Design Document](https://github.com/polarin-he/va_add.git).
-
-<div style="max-width: 1080px;">
+This metadata checklist includes both mandatory and recommended metadata fields, along with their purpose and examples. It is important to note that the checklist is not exhaustive and may be updated in the future as new requirements or recommendations arise. How the metadata is provided depends on the standardized metadata schema used (e.g., ACDD, CF conventions, ISO 19115, etc.), and mappings between metadata elements and most common metadata standards are provided in the [POLARIN Architecture Design Document](https://github.com/polarin-he/va_add.git).
 
 | **Requirement level for TA data** | **Element**             | **Purpose**                                                                                                                                                                                                                                                     |
 |-----------------------------------|-------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Required                          | License                 | Providing a license in the metadata clarifies how others can legally use, share, or adapt your data, ensuring compliance with funder requirements and promoting responsible reuse\. In POLARIN, a CC\-BY 4\.0 \(or a more permissive license\) is required\.    |
 | Required                          | Acknowledgement         | Providing an acknowledgement in the metadata ensures proper credit is given to contributors, funders, and data sources, fostering transparency and ethical reuse\. In POLARIN, the Grant Agreement number 101130949 should be provided in this metadata field\. |
-| Optional                          | Metadata identifier     | A unique identifier for the dataset\. This is used to avoid duplicate records in aggregator catalogues\. Utilisation of UUID with a namespace prefix is recommended\.                                                                                           |
+| Optional but highly recommended                          | Metadata identifier     | A unique identifier for the dataset\. This is used to avoid duplicate records in aggregator catalogues\. Utilisation of UUID with a namespace prefix is recommended\.                                                                                           |
 | Optional                          | Last update of metadata | An ISO8601 datetime for the last update of the metadata record\.                                                                                                                                                                                                |
 | Optional                          | Title                   | To provide a brief explanatory title for the dataset                                                                                                                                                                                                            |
 | Optional                          | Abstract                | A short summary of the dataset, its purpose and how it was generated\.                                                                                                                                                                                          |
@@ -124,14 +118,10 @@ This checklist includes both mandatory and recommended metadata fields, along wi
 | Optional                          | Publisher               | This is identification of the data centre publishing the data\. It contains a long and short name for the data centre and URL to the landing page\.                                                                                                             |
 | Optional                          | Use constraint          | This is a license for the data\. This is a URL to the license text and an identifier\. Utilisation of SPDX is recommended\.                                                                                                                                     |
 | Optional                          | Data Access             | This provides direct access to the dataset for download etc\. It is not a landing page, but a direct link to the data and indication using a controlled vocabulary of the access mechanism \(ranging from direct download to OPeNDAP and OGC WMS\)\.            |
-| Optional                          | Project                 | A list of projects that has contributed to the creation of the dataset\. Polarin has to be one of the projects\.                                                                                                                                                |
-
-</div>
+| Optional                          | Project                 | A list of projects that has contributed to the creation of the dataset\. Here you would need to include "POLARIN" as one of the project tags\.                                                                                                                                                |
 
 ## What file format should I use for my POLARIN TA dataset?
 There are no strict requirements for file formats in POLARIN, but use self-descriptive **machine-readable formats** wherever possible to ensure your data is accessible and reusable out-of-the-box. POLARIN recommends either ACDD-compliant CF-NetCDF or Darwin Core Archive (DwC-A) for POLARIN TA datasets, depending on the type of data being collected. Other popular formats are listed in the table below, along with their openness, FAIRness, and suitability for different types of data:
-
-<div style="max-width: 1080px;">
 
 | **Format**                   | **Openness** | **Inherently FAIR?** | **Most suitable for**                                           | **Notes**                                                                                                                                                       |
 |------------------------------|--------------|----------------------|-----------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -145,9 +135,7 @@ There are no strict requirements for file formats in POLARIN, but use self-descr
 | **Excel (.xlsx)**            | Closed       | ❌ No                 | Simple tabular data, proprietary format                         | Not recommended for any purpose                                                                                                                                 |
 | **Word (.docx)**             | Closed       | ❌ No                 | Text-based data, proprietary format                             | Not recommended for any purpose                                                                                                                                 |
 
-</div>
-
-## Tools for Metadata Creation
+## Tools for (meta)data standardization and compliance checking
 Use these **beginner-friendly tools** to create compliant metadata:
 
 - **Template Generators**:

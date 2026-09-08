@@ -22,11 +22,11 @@
 
 **Date created: 19-06-2026**
 
-**Date last modified: 22-06-2026**
+**Date last modified: 26-06-2026**
 
 **License: [GNU GENERAL PUBLIC LICENSE Version 3 (AGPLv3)](https://www.gnu.org/licenses/gpl-3.0.html)** </div>
 
-This notebook explains how to publish your POLARIN TA data in trusted repositories while following **Open Science principles**, all whilst maximizing compliance with the FAIR (Findable, Accessible, Interoperable, Reusable) and CARE (Collective Benefit, Authority to Control, Responsibility, Ethics) data principles. It provides strategies on **where to publish** and **licensing** for maximum reuse and impact.
+This notebook explains where and how to publish your POLARIN TA data in trusted repositories while following **Open Science principles**. It provides strategies on **where to publish** your TA data, describes the concept of **data embargos** and explains the importance of **clear licensing** for maximum reuse and impact.
 
 
 ---
@@ -36,7 +36,7 @@ By the end of this notebook, you will:
 - Understand the (requirements posed by) **Open Science principles** adopted by Horizon Europe (and therefore also POLARIN)
 - Understand **where to publish your POLARIN TA** data in trusted repositories.
 - Learn how to **attach a clear data license** to enable reuse.
-- Know how to **request an embargo period** if your data needs temporary privacy.
+- Know how to **request an embargo period** if your TA data needs temporary privacy.
 
 #### Prerequisites
 - Completion of **[Notebook 3: Structuring Data](./03_Structuring_Data.ipynb)**
@@ -81,7 +81,7 @@ NOTE: According to Horizon Europe (and therefore also POLARIN TA), data may be c
 - It involves **personal data** (unless anonymized or explicit consent is given).
 - It violates **Union competitive interests, security rules, or other Grant Agreement obligations**. </div>
 
-## ⏳ Embargo period
+## ⏳ Data embargo periods
 If your POLARIN TA data is **not yet ready for public release**, you can request an **embargo period** from the data center where you will publish your data. This allows you to **keep your data private for a certain period of time** before it becomes publicly available. POLARIN allows an embargo on TA data anywhere between 6 up to 24 months, depending on the needs of the researcher. However, since not every data center handles embargo requests, always check with the data center for their specific embargo possibilities and policies.
 
 Under Horizon Europe law, all metadata of published data must be made openly available as soon as possible under a machine-readable format under a Creative Common Public Domain Dedication ([CC0](https://creativecommons.org/public-domain/#cc0)) or equivalent, regardless of any embargo period on the data it describes. This means that even if your data is under embargo, the metadata must be publicly available.
@@ -92,9 +92,7 @@ Attaching a data license in POLARIN is like adding a clear rulebook to your data
 A license enables the reuse of our data, i.e. the inclusion of a license makes your data legally interoperable. It also allows for integrating your data into data services, such as the POLARIN Data Hub. By choosing a **open license** (e.g., CC-BY 4.0, CC0, or equivalent) you encourage collaboration, maximize your data’s impact, and meet ethical and funding requirements, all while keeping things simple and transparent for everyone.
 
 ## 📁 <a id='what-data-repository-should-i-publish-my-data-to'></a> What repository should I publish my TA data and other research outputs to? 📄
-   Publish your data in a **openly accessible, trusted repository** that matches both the scientific domain and study area of your data. Preferably, choose a (meta)data repository that is a part of the POLARIN consortium, i.e. one of the following:
-
-<div style="max-width: 1080px;">
+Publish your data in a **openly accessible, trusted repository** that matches both the scientific domain and study area of your data. Preferably, choose a (meta)data repository that is a part of the POLARIN consortium, i.e. one of the following:
 
  **Type of (meta)data**                     | **Study area**       | **(Meta)data repository**                                                                                                                                                                                                                      | **FAIRness level of platform** | **Notes**                                                                                                                                                                                                                                
 --------------------------------------------|----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -108,8 +106,6 @@ A license enables the reuse of our data, i.e. the inclusion of a license makes y
  Any                                        | Arctic and Antarctic | [POLARIN Zenodo Community](https://zenodo.org/communities/eu-polarin/records?q=&l=list&p=1&s=10&sort=newest)                                                                                                                                   | Low                            | Generalist repository, prioritize other repositories to allow your data to be more FAIR;                                                                                                                                                 
  Any                                        | Arctic and Antarctic | [POLARIN GeoNetwork](https://geonetwork.s4polarin.eu/geonetwork/srv/eng/catalog.search)                                                                                                                                                        | Low                            | Generalist repository, prioritize other repositories to allow your data to be more FAIR;                                                                                                                                                 
  Any                                        | Arctic and Antarctic | [POLARIN ERDDAP](https://erddap.s4polarin.eu/erddap/index.html)                                                                                                                                                                                | Low                            | Generalist repository, prioritize other repositories to allow your data to be more FAIR;                                                                                                                                                 
-
-</div>
 
 **⚠️ Important**: Always **discuss publication with the data center** to ensure compliance with their requirements.
 
